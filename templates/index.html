@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>“一带一路”经贸数据可视化分析系统</title>
+        <link rel="shortcut icon" type="favicon.ico" href="/static/images/favicon.ico">
+        <link rel="stylesheet" href="/static/css/index.css" />
+    </head>
+    <body>
+        <header>
+            <h1>“一带一路”经贸数据可视化分析系统</h1>
+        </header>
+        <!-- 页面主体部分 -->
+        <section class="mainbox">
+            <!-- 左边的盒子 -->
+            <!-- 这里可以放三张图 -->
+            <div class="column">
+                <div class="panel bar">
+                    <!-- 左边第1张图 -->
+                    <h2>一带一路沿线国家GDP TOP10</h2>
+                    <div class="chart"></div>
+                    <div class="panel-footer"></div>
+                </div>
+                <div class="panel">
+                    <!-- 左边第2张图 -->
+                    
+                    <div class="panel-footer"></div>
+                </div>
+                <div class="panel">
+                    <!-- 左边第3张图 -->
+                    
+                    <div class="panel-footer"></div>
+                </div>
+            </div>
+
+            <!-- 中间的盒子 -->
+            <div class="column">
+                <!-- 使用Echarts的5步曲 -->
+                <!-- 1. 下载并引入Echarts.js -->
+                <!-- 2. 准备一个具备大小的DOM容器 -->
+                <!-- 3. 初始化Echarts实例对象 -->
+                <!-- 4. 指定配置项和数据（option） -->
+                <!-- 5. 将配置项设置给Echarts实例对象 -->
+                <div class="map">
+                    <div class="chart"></div>
+                    
+                    <!-- 球体模块制作 -->
+                    <div class="map1"></div>
+                    <!-- 旋转球体模块制作 -->
+                    <div class="map2"></div>
+                    <!-- 旋箭头制作 -->
+                    <div class="map3"></div>
+                </div>
+
+            </div>
+
+            <!-- 右边的盒子 -->
+            <!-- 这里可以放三张图 -->
+            <div class="column">
+                <div class="panel">
+                    <!-- 右边第1张图 -->
+                    <div class="panel-footer"></div>
+                </div>
+                <div class="panel">
+                    <!-- 右边第2张图 -->
+                    
+                    <div class="panel-footer"></div>
+                </div>
+                <div class="panel">
+                    <!-- 右边第3张图 -->
+                    
+                    <div class="panel-footer"></div>
+                </div>
+            </div>
+
+        </section>
+        <script src="/static/js/flexible.js"></script>
+        <script src="/static/js/echarts.min.js"></script>
+        <script src="/static/js/index.js"></script>
+    </body>
+</html>
