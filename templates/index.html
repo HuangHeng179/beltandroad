@@ -6,7 +6,64 @@
         <title>“一带一路”经贸数据可视化分析系统</title>
         <link rel="shortcut icon" type="favicon.ico" href="/static/images/favicon.ico">
         <link rel="stylesheet" href="/static/css/index.css" />
+        <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     </head>
+    <style>
+        #container {
+            {#width: 500px;#}
+            {#height: 820px;#}
+            margin: 0 auto;
+        }
+        div.search {padding: 30px 0 20px;}
+
+        form {
+            position: relative;
+            width: 400px;
+            margin: 0 auto;
+        }
+
+        input, button {
+            border: none;
+            outline: none;
+        }
+
+        input {
+            width: 100%;
+            height: 42px;
+            padding-left: 13px;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            height: 42px;
+            width: 42px;
+            cursor: pointer;
+            position: absolute;
+        }
+        /*搜索框5*/
+        {#.bar5 {background: #683B4D;}#}
+        .bar5 input, .bar5 button {
+            background: transparent;
+        }
+        .bar5 input {
+            {#border: 2px solid #F9F0DA;#}
+            border: 2px solid white;
+        }
+        .bar5 button {
+            top: 0;
+            right: 0;
+        }
+        .bar5 button:before {
+            content: "\f002";
+            font-family: FontAwesome;
+            font-size: 16px;
+            color: #F9F0DA;
+        }
+        .bar5 input:focus {
+            {#border-color: #311c24#}
+        }
+    </style>
     <body>
         <header>
             <h1>“一带一路”经贸数据可视化分析系统</h1>
@@ -36,6 +93,15 @@
 
             <!-- 中间的盒子 -->
             <div class="column">
+                <!-- 搜索框 -->
+                <div id="container">
+                    <div class="search bar5">
+                        <form>
+                            <input type="text" placeholder="请输入您想要了解的国家...">
+                            <button type="submit"></button>
+                        </form>
+                    </div>
+                </div>
                 <!-- 使用Echarts的5步曲 -->
                 <!-- 1. 下载并引入Echarts.js -->
                 <!-- 2. 准备一个具备大小的DOM容器 -->
@@ -78,7 +144,7 @@
         </section>
         <script src="/static/js/flexible.js"></script>
         <script src="/static/js/echarts.min.js"></script>
-        <script src="http://gallery.echartsjs.com/dep/echarts/map/js/world.js "></script>
+        <script src="/static/js/world.js"></script>
         <script src="/static/js/index.js"></script>
     </body>
 </html>
