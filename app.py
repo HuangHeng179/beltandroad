@@ -24,7 +24,11 @@ def index():
 def getsomecountries():
     if request.method=="POST":
         countryString=request.form.get('str_country')
-        return make_response(jsonify(functions.fuzzySearchCountry(countryString)))
+        res=make_response(jsonify(functions.fuzzySearchCountry(countryString)))
+        res.headers['Access-Control-Allow-Origin'] = '*'
+        res.headers['Access-Control-Allow-Method'] = '*'
+        res.headers['Access-Control-Allow-Headers'] = '*'
+        return res
 
 
 if __name__ == '__main__':
