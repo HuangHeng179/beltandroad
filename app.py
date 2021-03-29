@@ -20,7 +20,7 @@ def beltandroad():
 def index():
     return redirect('/beltandroad')
 
-@app.route('/getSomeCountries',methods=['GET','POST'])
+@app.route('/beltandroad/getSomeCountries',methods=['GET','POST'])
 def getsomecountries():
     if request.method=="POST":
         countryString=request.form.get('str_country')

@@ -7,7 +7,7 @@ function getSomeCountries(str_country){
     }
 
     $.ajax({
-        url: "/getSomeCountries",
+        url: "/beltandroad/getSomeCountries",
         type: 'post',
         async : false,
         data: data,
