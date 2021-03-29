@@ -14,7 +14,7 @@
             {#height: 820px;#}
             margin: 0 auto;
         }
-        div.search {padding: 30px 0 20px;}
+        div.search {padding: 30px 0 0;}
 
         form {
             position: relative;
@@ -61,8 +61,32 @@
             color: #F9F0DA;
         }
         .bar5 input:focus {
-            {#border-color: #311c24#}
+            border-color: #311c24
         }
+
+        /*动态搜索框*/
+        #on_changes{
+            width: 400px;
+            position:absolute;
+            top:42px;
+            list-style:none;
+            {#background:#311c24;#}
+            font-size: 16px;
+            z-index: 999;
+        }
+        li{
+            {#padding: 5px 0;#}
+            color: black;
+            font-size: 16px;
+            height: 32px;
+            line-height: 32px;
+            cursor: pointer;
+            background-color: white;
+        }
+        li:hover {
+          background-color: #e5e5e5;
+        }
+
     </style>
     <body>
         <header>
@@ -96,9 +120,11 @@
                 <!-- 搜索框 -->
                 <div id="container">
                     <div class="search bar5">
-                        <form>
-                            <input type="text" placeholder="请输入您想要了解的国家...">
-                            <button type="submit"></button>
+                        <form onsubmit="return false;">
+                            <input id="input_search" type="text" name="str_country" autocomplete="off" placeholder="请输入您想要了解的国家...">
+                            <button id="btn_search"></button>
+                            <ul id="on_changes">
+                            </ul>
                         </form>
                     </div>
                 </div>
@@ -126,6 +152,7 @@
             <div class="column">
                 <div class="panel">
                     <!-- 右边第1张图 -->
+
                     <div class="panel-footer"></div>
                 </div>
                 <div class="panel">
@@ -142,9 +169,12 @@
             </div>
 
         </section>
-        <script src="/static/js/flexible.js"></script>
-        <script src="/static/js/echarts.min.js"></script>
-        <script src="/static/js/world.js"></script>
+        <script src="/static/js/resources/flexible.js"></script>
+        <script src="/static/js/resources/jquery-1.11.1.min.js"></script>
+        <script src="/static/js/resources/echarts.min.js"></script>
+        <script src="/static/js/resources/world.js"></script>
+        <script src="/static/js/api.js"></script>
+        <script src="/static/js/functions.js"></script>
         <script src="/static/js/index.js"></script>
     </body>
 </html>
