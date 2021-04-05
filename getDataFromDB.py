@@ -50,5 +50,22 @@ def getAllCountries():
         res.append(i[0])
     return res
 
+
+# 2.从数据库中获取某一年所有的国家及相关GDP数据
+def getGDPData(year):
+    conn, cur = connectDB()
+    sqlText = "select country_name,"+str(year)+"_total_gdp from country"
+    cur.execute(sqlText)
+    allCountriesAndGdp = cur.fetchall()
+    closeDB(cur, conn)
+
+    # 对从数据库中取出的数据进行处理
+    res = []
+    for i in allCountriesAndGdp:
+        res.append([i[0],i[1]])
+    return res
+
+
 if __name__ == '__main__':
-    print(getAllCountries())
+    # print(getAllCountries())
+    print(getGDPData(2014))

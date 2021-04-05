@@ -1,7 +1,6 @@
-function chart1(){
+function chart1(countries,gdps){
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector(".bar .chart"));
-
 
     // console.log(mychart);
     // 2.指定配置项和数据
@@ -23,13 +22,14 @@ function chart1(){
         xAxis: [
             {
                 type: 'category',
-                data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                data: countries,
                 axisTick: {
                     alignWithLabel: true
                 },
                 // 修改刻度标签相关样式
                 axisLabel:{
                     color:"white",
+                    interval:0
                 },
                 // 不显示x坐标轴的样式
                 axisLine:{
@@ -43,7 +43,8 @@ function chart1(){
 
                 // 修改刻度标签相关样式
                 axisLabel:{
-                    color:"white"
+                    color:"white",
+
                 },
 
                 // y轴分割线的样式
@@ -57,14 +58,21 @@ function chart1(){
         ],
         series: [
             {
-                name: '直接访问',
+                name: '国民生产总值',
                 type: 'bar',
                 barWidth: '35%',
-                data: [10, 52, 200, 334, 390, 330, 220],
+                data: gdps,
                 itemStyle: {
                     // 修改柱子圆角
                     barBorderRadius: 5
-                }
+                },
+                // label: {
+                //     normal: {
+                //         show: true,
+                //         position: 'outside',
+                //         formatter: '{a}:{b}亿元' // 这里是数据展示的时候显示的数据
+                //     }
+                // }
             }
         ]
     };
@@ -391,10 +399,8 @@ function chart7(){
     mychart.setOption(option);
 }
 
-// function returnFalse() {
-//     return false;
-// }
 
+// 根据输入框的内容进行搜索
 function searchCountries() {
     let value=$("#input_search").val();
     // 向服务器请求数据
@@ -420,4 +426,18 @@ function clearContent() {
     for (let i = size - 1; i >= 0; i--) {
         searchResult.removeChild(searchResult.childNodes[i]);
     }
+}
+
+// 根据时间轴时间更改相关图表
+function changeChartByYear() {
+    // 获取时间轴时间
+    let year=parseInt($(".act:first").text());
+
+    // 发送ajax请求获取数据
+    let data1=getGDPTop8(year);
+
+    // 更改图表的标题
+    $(".bar h2:first").html("一带一路沿线国家GDP TOP8&nbsp&nbsp——"+year+"年");
+    // 根据获取的数据更改图表
+    chart1(data1.countries,data1.gdps);
 }

@@ -10,6 +10,7 @@ body {
   /*  背景图定位 / 背景图尺寸  cover 完全铺满容器  contain 完整显示在容器内 */
   background: url(../images/bg.jpg) no-repeat #000;
   background-size: cover;
+  height: 100vh;
   /* 行高是字体1.15倍 */
   line-height: 1.15;
 }
@@ -36,7 +37,7 @@ header h1 {
 }
 .mainbox .column:nth-child(2) {
   flex: 5;
-  margin: 0 0.125rem 0.1875rem;
+  margin: 0 0.125rem 0;
   overflow: hidden;
 }
 .panel {
@@ -111,14 +112,14 @@ header h1 {
 }
 .map {
   position: relative;
-  height: 10.125rem;
+  height: 9rem;
 }
 .map .chart {
   position: absolute;
   top: 0;
   left: 0;
   z-index: 5;
-  height: 10.125rem;
+  height: 9rem;
   width: 100%;
 }
 .map .map1,

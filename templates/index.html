@@ -32,7 +32,7 @@
             height: 42px;
             padding-left: 13px;
             color: white;
-            font-size: 16px;
+            font-size: 18px;
         }
 
         button {
@@ -77,15 +77,81 @@
         li{
             {#padding: 5px 0;#}
             color: black;
-            font-size: 16px;
-            height: 32px;
-            line-height: 32px;
+            font-size: 18px;
+            height: 34px;
+            line-height: 34px;
             cursor: pointer;
             background-color: white;
         }
         li:hover {
           background-color: #e5e5e5;
         }
+
+
+        /* 时间轴的样式 */
+        .event_box{ width: 80%; margin: 3% auto 0;position: relative;}
+
+        .event_box .parHd {width: 100%; display: inline-block;
+
+            height: 75px;
+
+            overflow: hidden;}
+
+        .parHd  ul{ width: 100%; text-align: center; margin: 0 auto; padding-top: 25px !important;}
+
+        .parHd .tempWrap{ margin: 0 auto;}
+
+        .parHd .tempWrap:after{
+            content: '';width: 82%;
+            height: 2px;
+            background: white;
+            position: absolute;
+            /* top: 33%; */
+            /* right: -140%; */
+            right: 8%;
+            top: 35%;
+            /* margin-top: -0.5px; */
+            z-index: 10;
+        }
+        /*.parHd li:before{ content: ''; width: 180%; height: 1px; background: #580000; position: absolute;top: 0; right:-140%;right: 0;}*/
+
+        .parHd li.no_line:before{ display: none;}
+
+        .parHd li{  display: inline-block; cursor: pointer; padding-top: 7px; font-size: 18px; color: white;margin:0 30px; position: relative;background: transparent;}
+
+        .parHd li:after{ content: ''; background: url(/static/images/dot_ico.png) no-repeat; width: 24px; height: 24px; position: absolute;  z-index: 20;top: -12px; left: 50%; margin-left: -12px;}
+
+        .parBd{ text-align: center; margin-top: 60px;}
+
+        .parBd h4{ position: relative; font-size: 40px; margin-bottom: 3%; /*width: 200px;*/ padding: 0 60px;  display: inline-block; text-align: center;}
+
+        .parBd h4:after{ content:''; background: #000; width: 100px; height: 1px; position: absolute; left: -100px; bottom: 12px;}
+
+        .parBd h4:before{ content:''; background: #000; width: 100px; height: 1px; position: absolute; right: -100px; bottom: 12px;}
+
+        .parBd p{ line-height: 180%; font-size: 16px; width: 80%; margin: 0 auto;}
+
+        div#listBox {
+
+            width: 100%;
+
+        }
+
+        .sPrev,.sNext{ width: 30px; height: 30px; display: block; position: absolute; top: 10px;}
+
+        .sPrev{ left: 0;}
+
+        .sNext{ right: 0;}
+
+        .sPrev img,.sNext img{transition: all .6s cubic-bezier(.51,1.1,.9,.95);
+
+            -moz-transition: all .6s cubic-bezier(.51,1.1,.9,.95);
+
+            -webkit-transition: all .6s cubic-bezier(.51,1.1,.9,.95);
+
+            -o-transition: all .6s cubic-bezier(.51,1.1,.9,.95);
+             }
+        .parHd .act:after{ content: ''; background: url(/static/images/dot_ico1.png) no-repeat; width: 24px; height: 24px; position: absolute;  z-index: 20;top: -12px; left: 50%; margin-left: -12px;}
 
     </style>
     <body>
@@ -99,7 +165,7 @@
             <div class="column">
                 <div class="panel bar">
                     <!-- 左边第1张图 -->
-                    <h2>一带一路沿线国家GDP TOP10</h2>
+                    <h2>一带一路沿线国家GDP TOP8</h2>
                     <div class="chart"></div>
                     <div class="panel-footer"></div>
                 </div>
@@ -136,13 +202,33 @@
                 <!-- 5. 将配置项设置给Echarts实例对象 -->
                 <div class="map">
                     <div class="chart"></div>
-                    
+
                     <!-- 球体模块制作 -->
                     <div class="map1"></div>
                     <!-- 旋转球体模块制作 -->
                     <div class="map2"></div>
                     <!-- 旋箭头制作 -->
                     <div class="map3"></div>
+
+                </div>
+                <!-- 时间轴 -->
+                <div class="event_box">
+                    <div class="space_div">
+                        <p class="left_space"></p>
+                        <p class="right_space"></p>
+                    </div>
+                    <div class="parHd clearfix">
+                        <ul>
+                            <li>2014年</li>
+                            <li>2015年</li>
+                            <li class="act">2016年</li>
+                            <li>2017年</li>
+                            <li>2018年</li>
+                            <li>2019年</li>
+                        </ul>
+                        <a class="sPrev"><img src="/static/images/left_ico.png" alt="" title=""></a>
+                        <a class="sNext"><img src="/static/images/right_ico.png" alt="" title=""></a>
+                    </div>
                 </div>
 
             </div>
@@ -173,8 +259,10 @@
         <script src="/static/js/resources/jquery-1.11.1.min.js"></script>
         <script src="/static/js/resources/echarts.min.js"></script>
         <script src="/static/js/resources/world.js"></script>
+        <script src="/static/js/resources/jquery.SuperSlide2.1.2.js"></script>
         <script src="/static/js/api.js"></script>
         <script src="/static/js/functions.js"></script>
         <script src="/static/js/index.js"></script>
+
     </body>
 </html>

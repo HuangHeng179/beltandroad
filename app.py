@@ -25,14 +25,21 @@ def getsomecountries():
     if request.method=="POST":
         countryString=request.form.get('str_country')
         res=make_response(jsonify(functions.fuzzySearchCountry(countryString)))
-        res.headers['Access-Control-Allow-Origin'] = '*'
-        res.headers['Access-Control-Allow-Method'] = '*'
-        res.headers['Access-Control-Allow-Headers'] = '*'
+        # res.headers['Access-Control-Allow-Origin'] = '*'
+        # res.headers['Access-Control-Allow-Method'] = '*'
+        # res.headers['Access-Control-Allow-Headers'] = '*'
         return res
+
+
+@app.route('/beltandroad/getGDPTop8',methods=['POST'])
+def getGDPTop8():
+    year=int(request.form.get('year'))
+    res=make_response(jsonify(functions.getGDPTop8(year)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
 
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)
-    # print(jsonify({'info': "收到了ajax请求"}))
-    # print(jsonify([1,2,3]))
-    # print(jsonify({1:1,2:2,3:3}))
