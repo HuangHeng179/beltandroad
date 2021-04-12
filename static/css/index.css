@@ -16,7 +16,7 @@ body {
 }
 header {
   position: relative;
-  height: 1.25rem;
+  height: 1.1rem;
   background: url(../images/head_bg.png) no-repeat top center;
   background-size: 100% 100%;
 }
@@ -25,6 +25,10 @@ header h1 {
   color: #fff;
   text-align: center;
   line-height: 1rem;
+  cursor: pointer;
+}
+header h1:hover {
+  color: #2f89cf;
 }
 .mainbox {
   min-width: 1024px;
@@ -42,11 +46,11 @@ header h1 {
 }
 .panel {
   position: relative;
-  height: 3.875rem;
+  height: 3.75rem;
   border: 1px solid rgba(25, 186, 139, 0.17);
   background: rgba(255, 255, 255, 0.04) url(../images/line\(1\).png);
   padding: 0 0.1875rem 0.5rem;
-  margin-bottom: 0.1875rem;
+  margin-bottom: 0.13rem;
 }
 .panel::before {
   position: absolute;

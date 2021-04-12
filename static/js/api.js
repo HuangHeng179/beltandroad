@@ -54,3 +54,31 @@ function getGDPTop8(year) {
     // console.log(retData);
     return retData;
 }
+
+// 2.获取country_name国家的进口额、出口额和进出口总额(双边贸易数据)
+function getBilateralInvestmentByCountryName(country_name) {
+    let retData=[]
+    let data={
+        'country_name':country_name
+    }
+
+    $.ajax({
+        url: "/beltandroad/getBilateralInvestmentByCountryName",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}

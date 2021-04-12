@@ -20,7 +20,8 @@ header={
  "X-Requested-With": "XMLHttpRequest"
 }
 res=requests.get('https://www.yidaiyilu.gov.cn/js/SJ/data3.json',headers=header,verify=False)
-jsonObj=json.loads(res.text)##这个是json对象 可以直接使用了
+res_html = res.content.decode(encoding='utf-8')
+jsonObj=json.loads(res_html)##这个是json对象 可以直接使用了
 print(jsonObj)
 print("#############################")
 print('进出口总额：')

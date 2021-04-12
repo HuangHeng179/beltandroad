@@ -41,5 +41,14 @@ def getGDPTop8():
     return res
 
 
+@app.route('/beltandroad/getBilateralInvestmentByCountryName',methods=['POST'])
+def getBilateralInvestmentByCountryName():
+    country_name=request.form.get('country_name')
+    res=make_response(jsonify(functions.getBilateralInvestmentByCountryName(country_name)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)

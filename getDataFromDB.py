@@ -12,7 +12,7 @@ import pymysql
 # 数据库连接
 def connectDB():
     # 1.数据库连接
-    # 数据库 本地数据库：'localhost','121.196.104.224'
+    # 数据库 本地数据库：'121.196.104.224'
     conn = pymysql.connect(
         host='121.196.104.224',
         user='root',
@@ -54,7 +54,7 @@ def getAllCountries():
 # 2.从数据库中获取某一年所有的国家及相关GDP数据
 def getGDPData(year):
     conn, cur = connectDB()
-    sqlText = "select country_name,"+str(year)+"_total_gdp from country"
+    sqlText = "select country_name,{}_total_gdp from country".format(year)
     cur.execute(sqlText)
     allCountriesAndGdp = cur.fetchall()
     closeDB(cur, conn)
@@ -66,6 +66,20 @@ def getGDPData(year):
     return res
 
 
+# 3.从数据库中某一个国家的双边贸易数据
+def getBIDataByCountryName(country_name):
+    conn, cur = connectDB()
+    sqlText = "select * from bilateralinvestment where countryname='{}'".format(country_name)
+    cur.execute(sqlText)
+    bidata = cur.fetchall()
+    closeDB(cur, conn)
+
+    # print(bidata)
+    return bidata
+
+
 if __name__ == '__main__':
     # print(getAllCountries())
-    print(getGDPData(2014))
+    # print(getGDPData(2014))
+    # print(len(getBIDataByCountryName('俄罗斯')[0]))
+    pass

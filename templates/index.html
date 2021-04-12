@@ -10,15 +10,13 @@
     </head>
     <style>
         #container {
-            {#width: 500px;#}
-            {#height: 820px;#}
             margin: 0 auto;
         }
         div.search {padding: 30px 0 0;}
 
         form {
             position: relative;
-            width: 400px;
+            width: 500px;
             margin: 0 auto;
         }
 
@@ -66,13 +64,16 @@
 
         /*动态搜索框*/
         #on_changes{
-            width: 400px;
+            width: 500px;
             position:absolute;
             top:42px;
             list-style:none;
             {#background:#311c24;#}
             font-size: 16px;
             z-index: 999;
+            border-left: 2px solid #311c24;
+            border-right: 2px solid #311c24;
+            border-bottom: 2px solid #311c24;
         }
         li{
             {#padding: 5px 0;#}
@@ -156,10 +157,10 @@
     </style>
     <body>
         <header>
-            <h1>“一带一路”经贸数据可视化分析系统</h1>
+            <h1 id="title_btn">“一带一路”经贸数据可视化分析系统</h1>
         </header>
         <!-- 页面主体部分 -->
-        <section class="mainbox">
+        <section id="mainbox" class="mainbox">
             <!-- 左边的盒子 -->
             <!-- 这里可以放三张图 -->
             <div class="column">
@@ -169,12 +170,15 @@
                     <div class="chart"></div>
                     <div class="panel-footer"></div>
                 </div>
-                <div class="panel">
+
+                <div class="panel" id="chart2_extend">
                     <!-- 左边第2张图 -->
-                    
+                    <h2>对中国进口额、出口额和进出口总额</h2>
+                    <div class="chart" id="chart2"></div>
                     <div class="panel-footer"></div>
                 </div>
-                <div class="panel">
+
+                <div class="panel" id="chart3">
                     <!-- 左边第3张图 -->
                     
                     <div class="panel-footer"></div>
@@ -219,6 +223,7 @@
                     </div>
                     <div class="parHd clearfix">
                         <ul>
+                            <li>2013年</li>
                             <li>2014年</li>
                             <li>2015年</li>
                             <li class="act">2016年</li>
@@ -260,9 +265,11 @@
         <script src="/static/js/resources/echarts.min.js"></script>
         <script src="/static/js/resources/world.js"></script>
         <script src="/static/js/resources/jquery.SuperSlide2.1.2.js"></script>
-        <script src="/static/js/api.js"></script>
-        <script src="/static/js/functions.js"></script>
-        <script src="/static/js/index.js"></script>
+
+        <script src="/static/js/api.js"></script>               <!-- 与后端数据交互 -->
+        <script src="/static/js/chart_config.js"></script>      <!-- 获得数据后生成图表 -->
+        <script src="/static/js/functions.js"></script>         <!-- 一些函数，打包一些动作 -->
+        <script src="/static/js/index.js"></script>             <!-- 初始页面显示、事件绑定等 -->
 
     </body>
 </html>

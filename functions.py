@@ -41,6 +41,39 @@ def getGDPTop8(year:int):
     return res
 
 
+def getBilateralInvestmentByCountryName(country_name):
+    bidata=getDataFromDB.getBIDataByCountryName(country_name)
+    # 对数据进行返回值的构建
+    total=[]
+    inside=[]
+    outside=[]
+    year=['2013年','2014年','2015年','2016年','2017年','2018年']
+    res = {'country_name':country_name,'year':year,'total': total, 'inside': inside, 'outside': outside}
+    if bidata==():
+        return res
+    else:
+        # 只获取2013年-2018年的数据
+        for i in range(len(bidata[0])):
+            if i==0:
+                pass
+            elif i==1:
+                country_name=bidata[0][i]
+                pass
+            else:
+                if (i-2)//7==0 and (i-2)%7!=6:
+                    total.append(float(bidata[0][i][:-3]))
+                elif (i-2)//7==1 and (i-2)%7!=6:
+                    inside.append(float(bidata[0][i][:-3]))
+                else:
+                    # (i-2)//7==1
+                    if (i-2)%7!=6:
+                        outside.append(float(bidata[0][i][:-3]))
+    return res
+
+
+
+
 if __name__ == '__main__':
     # print(fuzzySearchCountry('斯坦'))
-    print(getGDPTop8(2014))
+    # print(getGDPTop8(2014))
+    print(getBilateralInvestmentByCountryName('俄罗斯'))
