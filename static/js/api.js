@@ -55,7 +55,7 @@ function getGDPTop8(year) {
     return retData;
 }
 
-// 2.获取country_name国家的进口额、出口额和进出口总额(双边贸易数据)
+// 3.获取country_name国家的进口额、出口额和进出口总额(双边贸易数据)
 function getBilateralInvestmentByCountryName(country_name) {
     let retData=[]
     let data={
@@ -64,6 +64,64 @@ function getBilateralInvestmentByCountryName(country_name) {
 
     $.ajax({
         url: "/beltandroad/getBilateralInvestmentByCountryName",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}
+
+
+// 4.获取year年同中国签订共建“一带一路”合作文件国家分布
+function getJoinCountryByYear(year) {
+    let retData=[]
+    let data={
+        'year':year
+    }
+
+    $.ajax({
+        url: "/beltandroad/getJoinCountryByYear",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}
+
+
+// 5.获取year年外贸依存度Top10
+function getDependenceByYear(year) {
+    let retData=[]
+    let data={
+        'year':year
+    }
+
+    $.ajax({
+        url: "/beltandroad/getDependenceByYear",
         type: 'post',
         async : false,
         data: data,

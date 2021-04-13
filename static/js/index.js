@@ -42,5 +42,7 @@ $(function () {
 
 
     changeAllChartByCountry("俄罗斯");
-    
+
+
+    // chart1_5();
 });

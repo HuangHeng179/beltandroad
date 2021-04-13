@@ -12,13 +12,16 @@ app = Flask(__name__)
 
 app.secret_key='abcdefg'
 
+
 @app.route('/beltandroad')
 def beltandroad():
     return render_template('index.html')
 
+
 @app.route('/')
 def index():
     return redirect('/beltandroad')
+
 
 @app.route('/beltandroad/getSomeCountries',methods=['GET','POST'])
 def getsomecountries():
@@ -49,6 +52,26 @@ def getBilateralInvestmentByCountryName():
     # res.headers['Access-Control-Allow-Method'] = '*'
     # res.headers['Access-Control-Allow-Headers'] = '*'
     return res
+
+@app.route('/beltandroad/getJoinCountryByYear',methods=['POST'])
+def getJoinCountryByYear():
+    year=int(request.form.get('year'))
+    res=make_response(jsonify(functions.getJoinCountryByYear(year)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
+
+@app.route('/beltandroad/getDependenceByYear',methods=['POST'])
+def getDependenceByYear():
+    year=int(request.form.get('year'))
+    res=make_response(jsonify(functions.getDependenceByYear(year)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)

@@ -11,7 +11,7 @@ import getDataFromDB
 # 1 根据字符串查找相关的国家返回
 def fuzzySearchCountry(countryString:str):
     res=[]
-    allCountries=getDataFromDB.getAllCountries()
+    allCountries=getDataFromDB.allCountries
     for i in allCountries:
         if countryString in i:
             res.append(i)
@@ -71,9 +71,36 @@ def getBilateralInvestmentByCountryName(country_name):
     return res
 
 
+# 获取2014年-year年加入一带一路的国家
+def getJoinCountryByYear(year):
+    # 返回值的构建
+    res={'亚洲':0,'非洲':0,'大洋洲':0,'南美洲':0,'北美洲':0,'欧洲':0}
+    for i in range(2014,year+1):
+        temp=getDataFromDB.getAreaDataByYear(i)
+        for j in temp:
+            res[j]+=1
+            # print(res)
+    temp=0
+    for i in res:
+        temp+=res[i]
+    # res['total']=temp
+    return res
+
+
+# 获取year年外贸依存度Top10
+def getDependenceByYear(year):
+    data=getDataFromDB.getDependenceDataByYear(year)
+    data.sort(key=lambda x: x[1],reverse=True)
+    # 返回值的构建
+    res=[]
+    for i in range(10):
+        res.append(data[i])
+    return res
 
 
 if __name__ == '__main__':
     # print(fuzzySearchCountry('斯坦'))
     # print(getGDPTop8(2014))
-    print(getBilateralInvestmentByCountryName('俄罗斯'))
+    # print(getBilateralInvestmentByCountryName('俄罗斯'))
+    print(getDependenceByYear(2016))
+    pass

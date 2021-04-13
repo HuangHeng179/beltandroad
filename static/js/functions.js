@@ -38,11 +38,15 @@ function changeChart2ByCountry(country_name) {
 // 根据国家输入更改图表3
 // 根据国家输入更改图表4
 // 根据国家输入更改图表5
+// 根据国家输入更改图表6
 // 根据国家输入更改所有图表
 function changeAllChartByCountry(country_name) {
     changeChart1ByCountry(country_name);
     changeChart2ByCountry(country_name);
 }
+
+
+
 
 //// 时间输入、时间轴相关
 // 根据时间轴时间更改图表1
@@ -59,16 +63,67 @@ function changeChart1ByYear() {
     chart1_1(data1.countries,data1.gdps);
 }
 
-// 根据国家输入更改图表2
-// 根据国家输入更改图表3
-// 根据国家输入更改图表4
-// 根据国家输入更改图表5
+// 根据时间轴时间更改图表2
+// 根据时间轴时间更改图表3
+function changeChart3ByYear() {
+    // 获取时间轴时间
+    let year=parseInt($(".act:first").text());
 
+    // 发送ajax请求获取数据
+    let data=getJoinCountryByYear(year);
+
+    // 更改图表的标题
+    $("#chart3_extend h2:first").html("签订共建“一带一路”合作文件国家分布&nbsp&nbsp——"+year+"年");
+
+    // areaArr的构建
+    let areaArr=[]
+    for(let key in data){
+        if(data[key]!=0) {
+            areaArr.push({value: data[key], name: key})
+        }
+    }
+    areaArr.sort(function (a,b) {
+        return a.value-b.value
+    })
+    // 根据获取的数据更改图表
+    chart1_3(year,areaArr);
+}
+
+// 根据时间轴时间更改图表4
+// 根据时间轴时间更改图表5
+function changeChart5ByYear() {
+    // 获取时间轴时间
+    let year=parseInt($(".act:first").text());
+
+    // 发送ajax请求获取数据
+    let data=getDependenceByYear(year);
+
+    // 更改图表的标题
+    $("#chart3_extend h2:first").html("一带一路”沿线国家外贸依存度 Top10&nbsp&nbsp——"+year+"年");
+
+    // 构建参数
+    let indicator=[];
+    let seriesData=[];
+    for(let j = 0,len=data.length; j < len; j++) {
+        indicator.push({name:data[j][0],max:100});
+        seriesData.push(data[j][1]);
+    }
+    // console.log(seriesData)
+    // 根据获取的数据更改图表
+    chart1_5(indicator,seriesData);
+}
+
+
+// 根据时间轴时间更改图表6
 
 // 根据时间轴更改所有图表
 function changeAllChartByYear() {
     changeChart1ByYear();
+    changeChart3ByYear();
+    changeChart5ByYear();
 }
+
+
 /************************************************/
 
 
@@ -103,26 +158,4 @@ function clearContent() {
         searchResult.removeChild(searchResult.childNodes[i]);
     }
 }
-
-
-//// 时间输入、时间轴相关
-// 根据时间轴时间更改图表1
-function changeChart1ByYear() {
-    // 获取时间轴时间
-    let year=parseInt($(".act:first").text());
-
-    // 发送ajax请求获取数据
-    let data1=getGDPTop8(year);
-
-    // 更改图表的标题
-    $(".bar h2:first").html("一带一路沿线国家GDP TOP8&nbsp&nbsp——"+year+"年");
-    // 根据获取的数据更改图表
-    chart1_1(data1.countries,data1.gdps);
-}
-
-// 根据时间轴更改所有图表
-function changeAllChartByYear() {
-    changeChart1ByYear();
-}
-
 /************************************************/
