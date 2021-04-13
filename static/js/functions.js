@@ -99,7 +99,7 @@ function changeChart5ByYear() {
     let data=getDependenceByYear(year);
 
     // 更改图表的标题
-    $("#chart3_extend h2:first").html("一带一路”沿线国家外贸依存度 Top10&nbsp&nbsp——"+year+"年");
+    $("#chart5_extend h2:first").html("一带一路”沿线国家外贸依存度 Top10&nbsp&nbsp——"+year+"年");
 
     // 构建参数
     let indicator=[];
