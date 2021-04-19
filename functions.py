@@ -98,9 +98,62 @@ def getDependenceByYear(year):
     return res
 
 
+# 6.获取year年进口额、出口额和进出口总额Top8
+def getBilateralInvestmentByYear(year):
+    data = getDataFromDB.getBIDataByYear(year)
+    data.sort(key=lambda x: x[1], reverse=True)
+    # 返回值的构建
+    res = []
+    for i in range(8):
+        res.append(data[i])
+    return res
+
+
+# 7.根据国家名获取2014-2019年GDP数据
+def getGDPByCountryName(country_name):
+    data = getDataFromDB.getGDPDataByCountryName(country_name)
+    # 收集data[0]处理之后的结果
+    tempdata0=[]
+    # 收集data[1]处理之后的结果
+    tempdata1=[]
+
+    # 年份数据处理
+    for i in data[0]:
+        tempdata0.append(str(i)+"年")
+
+    # gdp数据处理
+    for i in data[1]:
+        tempdata1.append(float(i[:-1]))
+
+    # 返回值的构建
+    res = {}
+    res['years']=tempdata0
+    res['gdps']=tempdata1
+    return res
+
+
+def getDependenceByCountryName(country_name):
+    data = getDataFromDB.getDependenceDataByCountryName(country_name)
+    # 收集data[0]处理之后的结果
+    tempdata0 = []
+    # 收集data[1]和data[2]处理之后的结果
+    tempdata1 = []
+    # 年份数据处理
+    for i in data[0]:
+        tempdata0.append(str(i)+"年")
+
+    # 外贸依存度数据处理
+    for i in range(len(data[1])):
+        tempdata1.append(int(float(data[2][i][:-3])/(100*float(data[1][i][:-1]))))
+    # 返回值的构建
+    res = {}
+    res['years'] = tempdata0
+    res['dependence'] = tempdata1
+    return res
+
 if __name__ == '__main__':
     # print(fuzzySearchCountry('斯坦'))
     # print(getGDPTop8(2014))
     # print(getBilateralInvestmentByCountryName('俄罗斯'))
-    print(getDependenceByYear(2016))
+    print(getBilateralInvestmentByYear(2016))
     pass

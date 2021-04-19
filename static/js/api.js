@@ -140,3 +140,88 @@ function getDependenceByYear(year) {
     // console.log(retData);
     return retData;
 }
+
+
+// 6.获取year年进口额、出口额和进出口总额Top8
+function getBilateralInvestmentByYear(year) {
+    let retData=[]
+    let data={
+        'year':year
+    }
+
+    $.ajax({
+        url: "/beltandroad/getBilateralInvestmentByYear",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}
+
+// 7.根据国家名获取2014-2019年GDP数据
+function getGDPDataByCountryName(country_name) {
+    let retData=[]
+    let data={
+        'country_name':country_name
+    }
+
+    $.ajax({
+        url: "/beltandroad/getGDPByCountryName",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}
+
+// 8.根据国家名获取2014-2018年外贸依存度数据
+function getDependenceByCountryName(country_name) {
+    let retData=[]
+    let data={
+        'country_name':country_name
+    }
+
+    $.ajax({
+        url: "/beltandroad/getDependenceByCountryName",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}

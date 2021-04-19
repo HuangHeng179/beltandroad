@@ -73,5 +73,35 @@ def getDependenceByYear():
     return res
 
 
+@app.route('/beltandroad/getBilateralInvestmentByYear',methods=['POST'])
+def getBilateralInvestmentByYear():
+    year=int(request.form.get('year'))
+    res=make_response(jsonify(functions.getBilateralInvestmentByYear(year)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
+
+@app.route('/beltandroad/getGDPByCountryName',methods=['POST'])
+def getGDPByCountryName():
+    country_name=request.form.get('country_name')
+    res=make_response(jsonify(functions.getGDPByCountryName(country_name)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
+
+@app.route('/beltandroad/getDependenceByCountryName',methods=['POST'])
+def getDependenceByCountryName():
+    country_name=request.form.get('country_name')
+    res=make_response(jsonify(functions.getDependenceByCountryName(country_name)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)

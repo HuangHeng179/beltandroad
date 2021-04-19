@@ -39,7 +39,7 @@ def closeDB(cur,conn):
 # 1.从数据库中获取65国
 def getAllCountries():
     conn,cur=connectDB()
-    sqlText="select countryname from bilateralinvestment"
+    sqlText="select countryname from bilateralinvestment;"
     cur.execute(sqlText)
     allCountries=cur.fetchall()
     closeDB(cur,conn)
@@ -55,7 +55,7 @@ def getAllCountries():
 # 2.从数据库中获取某一年所有的国家及相关GDP数据
 def getGDPData(year):
     conn, cur = connectDB()
-    sqlText = "select country_name,{}_total_gdp from country".format(year)
+    sqlText = "select country_name,{}_total_gdp from country;".format(year)
     cur.execute(sqlText)
     allCountriesAndGdp = cur.fetchall()
     closeDB(cur, conn)
@@ -70,7 +70,7 @@ def getGDPData(year):
 # 3.从数据库中某一个国家的双边贸易数据
 def getBIDataByCountryName(country_name):
     conn, cur = connectDB()
-    sqlText = "select * from bilateralinvestment where countryname='{}'".format(country_name)
+    sqlText = "select * from bilateralinvestment where countryname='{}';".format(country_name)
     cur.execute(sqlText)
     bidata = cur.fetchall()
     closeDB(cur, conn)
@@ -80,7 +80,7 @@ def getBIDataByCountryName(country_name):
 # test:从数据库里获取68国
 def get68Country():
     conn, cur = connectDB()
-    sqlText = "select countryname from bilateralinvestment"
+    sqlText = "select countryname from bilateralinvestment;"
     cur.execute(sqlText)
     data=cur.fetchall()
     res=[]
@@ -94,7 +94,7 @@ def get68Country():
 # 4.根据时间获取国家所在的州
 def getAreaDataByYear(year):
     conn, cur = connectDB()
-    sqlText = "select area from country where time='{}'".format(year)
+    sqlText = "select area from country where time='{}';".format(year)
     cur.execute(sqlText)
     data = cur.fetchall()
     res = []
@@ -125,6 +125,71 @@ def getDependenceDataByYear(year):
     return res
 
 
+# 5.根据时间获取64个国家的对中国进口额、出口额和进出口总额
+def getBIDataByYear(year):
+    conn, cur = connectDB()
+    sqlText = "select countryname,"+str(year)+"_total,"+str(year)+"_inside,"+str(year)+"_outside from bilateralinvestment;"
+    cur.execute(sqlText)
+    data = cur.fetchall()
+    res = []
+    for i in data:
+        if i[0]!="中国":
+            res.append([i[0],float(i[1][:-3]),float(i[2][:-3]),float(i[3][:-3])])
+    # print(len(res))
+    closeDB(cur, conn)
+    return res
+
+
+# 6.根据国家名称获取2014年-2019年GDP数据
+def getGDPDataByCountryName(country_name):
+    conn, cur = connectDB()
+    years = [2014, 2015, 2016,2017,2018,2019]
+    yeargdps=""
+    for i in years:
+        yeargdps+=str(i)+"_total_gdp,"
+    yeargdps=yeargdps[:-1]
+    sqlText = "select "+yeargdps+" from country where country_name='{}';".format(country_name)
+    cur.execute(sqlText)
+    gdpdata = cur.fetchall()
+    gdpret=[]
+    for i in gdpdata[0]:
+        gdpret.append(i)
+    closeDB(cur, conn)
+    return years,gdpret
+
+# 7.根据国家名称获取2014年-2018年外贸依存度
+def getDependenceDataByCountryName(country_name):
+    conn, cur = connectDB()
+    years = [2014, 2015, 2016,2017,2018]
+    # gdp数据
+    yeargdps=""
+    for i in years:
+        yeargdps+=str(i)+"_total_gdp,"
+    yeargdps=yeargdps[:-1]
+    sqlText = "select "+yeargdps+" from country where country_name='{}';".format(country_name)
+    cur.execute(sqlText)
+    gdpdata = cur.fetchall()
+    gdpret=[]
+    for i in gdpdata[0]:
+        gdpret.append(i)
+
+    # 对外贸易总额
+    yeartotal=""
+    for i in years:
+        yeartotal+=str(i)+"_total,"
+    yeartotal = yeartotal[:-1]
+    sqlText = "select " + yeartotal + " from bilateralinvestment where countryname='{}';".format(country_name)
+    print(sqlText)
+    cur.execute(sqlText)
+    totaldata = cur.fetchall()
+    totalret = []
+    for i in totaldata[0]:
+        totalret.append(i)
+    closeDB(cur, conn)
+    return years,gdpret,totalret
+
+
+
 ## 一些全局变量，用于提高访存效率
 allCountries=getAllCountries()
 
@@ -135,5 +200,5 @@ if __name__ == '__main__':
     # print(len(getBIDataByCountryName('俄罗斯')[0]))
     # print(get68Country())
     # print(getAreaDataByYear(2017))
-    getDependenceDataByYear(2018)
+    print(getDependenceDataByCountryName("中国"))
     pass

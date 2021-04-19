@@ -12,9 +12,7 @@ $(function () {
     // 搜索框的列表项被点击时的事件绑定
     $('#on_changes').on('click','li',function () {
         let str=$(this).html();
-        console.log(str);
         str=str.replaceAll("&nbsp;","");
-        console.log(str);
         $("#input_search").val(str);
         changeAllChartByCountry(str);
     });
@@ -41,7 +39,7 @@ $(function () {
     chart_map();
 
 
-    changeAllChartByCountry("俄罗斯");
+    // changeAllChartByCountry("俄罗斯");
 
 
     // chart1_5();

@@ -18,7 +18,7 @@ function chart0() {
 
 function chart1_1(countries,gdps){
     // 1.实例化对象
-    let mychart=echarts.init(document.querySelector(".bar .chart"));
+    let mychart=echarts.init(document.querySelector("#chart1"));
 
     // console.log(mychart);
     // 2.指定配置项和数据
@@ -66,7 +66,6 @@ function chart1_1(countries,gdps){
                 // 修改刻度标签相关样式
                 axisLabel:{
                     color:"white",
-
                 },
 
                 // y轴分割线的样式
@@ -75,7 +74,6 @@ function chart1_1(countries,gdps){
                         color:"rgba(255,255,255,.1)"
                     }
                 }
-
             }
         ],
         series: [
@@ -101,8 +99,120 @@ function chart1_1(countries,gdps){
     });
 }
 
-function chart1_2() {
+function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
+    // 1.实例化对象
+    let mychart=echarts.init(document.querySelector("#chart2"));
 
+    // console.log(mychart);
+    // 2.指定配置项和数据
+    let option = {
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            },
+            formatter:function (params) {
+                let str=params[0].axisValue+"<br/>";
+                params.forEach(function (e) {
+                    str+=e.marker+e.seriesName+": "+e.value+"万美元<br/>";
+                });
+                return str
+            }
+        },
+        legend: {
+            data: ['进口额','出口额','进出口总额'],
+            textStyle:{
+                color:"#FFF",
+            },
+        },
+        grid: {
+            left: '0%',
+            right: '0%',
+            bottom: '0%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: xData,
+                axisLabel:{
+                    color:"#FFF",
+                    interval:0
+                },
+                axisLine:{
+                    show:false
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+                // 修改刻度标签相关样式
+                axisLabel:{
+                    color:"white",
+                },
+
+                // y轴分割线的样式
+                splitLine:{
+                    lineStyle:{
+                        color:"rgba(255,255,255,.1)"
+                    }
+                }
+            }
+        ],
+        series: [
+            {
+                name: '进口额',
+                type: 'bar',
+                stack: '外贸数据',
+                barWidth: '35%',
+                emphasis: {
+                    focus: 'series'
+                },
+                data: seriesDataInside,
+                // itemStyle: {
+                //     // 修改柱子圆角
+                //     barBorderRadius: 5
+                // },
+            },
+            {
+                name: '出口额',
+                type: 'bar',
+                stack: '外贸数据',
+                barWidth: '35%',
+                emphasis: {
+                    focus: 'series'
+                },
+                data: seriesDataOutside,
+                // itemStyle: {
+                //     // 修改柱子圆角
+                //     barBorderRadius: 5
+                // },
+            },
+            {
+                name: '进出口总额',
+                type: 'bar',
+                stack: '外贸数据',
+                barWidth: '35%',
+                emphasis: {
+                    focus: 'series'
+                },
+                data: seriesDataTotal,
+                // itemStyle: {
+                //     // 修改柱子圆角
+                //     barBorderRadius: 5
+                // },
+            },
+        ]
+    };
+
+    // 3.将配置项设置给echarts实例对象
+    mychart.setOption(option);
+
+    // 4.让图表跟随屏幕自适应
+    window.addEventListener("resize", function() {
+        mychart.resize();
+    });
 }
 
 function chart1_3(year,areaArr) {
@@ -301,11 +411,92 @@ function chart1_6(){
     mychart.setOption(option);
 }
 
-function chart2_1() {
+function chart2_1(years,gdps) {
+    // 1.实例化对象
+    let mychart=echarts.init(document.querySelector("#chart1"));
 
+    // console.log(mychart);
+    // 2.指定配置项和数据
+    let option = {
+        color:["#2f89cf"],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            },
+            formatter:function (params) {
+                // console.log(params)
+                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+params[0].value+"亿美元"
+            }
+        },
+        grid: {
+            left: '0%',
+            top:'10px',
+            right: '0%',
+            bottom: '0%',
+            containLabel: true
+        },
+        xAxis: [
+            {
+                type: 'category',
+                data: years,
+                axisTick: {
+                    alignWithLabel: true
+                },
+                // 修改刻度标签相关样式
+                axisLabel:{
+                    color:"white",
+                    interval:0
+                },
+                // 不显示x坐标轴的样式
+                axisLine:{
+                    show:false
+                }
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value',
+
+                // 修改刻度标签相关样式
+                axisLabel:{
+                    color:"white",
+                },
+
+                // y轴分割线的样式
+                splitLine:{
+                    lineStyle:{
+                        color:"rgba(255,255,255,.1)"
+                    }
+                }
+            }
+        ],
+        series: [
+            {
+                name: '国民生产总值',
+                type: 'bar',
+                barWidth: '35%',
+                data: gdps,
+                itemStyle: {
+                    // 修改柱子圆角
+                    barBorderRadius: 5
+                },
+
+            }
+        ]
+    };
+
+    // 3.将配置项设置给echarts实例对象
+    mychart.setOption(option);
+
+    // 4.让图表跟随屏幕自适应
+    window.addEventListener("resize", function() {
+        mychart.resize();
+    });
 }
 
 function chart2_2(year,total,inside,outside) {
+    console.log(year)
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart2"));
 
@@ -386,7 +577,6 @@ function chart2_2(year,total,inside,outside) {
             },
             boundaryGap: true,
             data: year,
-
         }],
 
         yAxis: [{
@@ -596,8 +786,105 @@ function chart2_4() {
 
 }
 
-function chart2_5() {
+function chart2_5(years,dependence) {
+    // 1.实例化对象
+    let mychart=echarts.init(document.querySelector("#chart5"));
 
+    // 2.指定配置项和数据
+    let option = {
+        tooltip: {
+            trigger: 'item',
+            formatter: function (params) {
+                let str="外贸依存度展示"+"<br>";
+                for(let j=0;j<years.length;j++){
+                    str+=years[j].name+"："+dependence[j]+"%<br/>";
+                }
+                return str;
+            }
+        },
+        radar: [{
+            indicator: years,
+            center: ['50%', '50%'],
+            radius: 85,
+            startAngle: 90,
+            splitNumber: 3,
+            orient: 'horizontal', // 图例列表的布局朝向,默认'horizontal'为横向,'vertical'为纵向.
+            // shape: 'circle',
+            // backgroundColor: {
+            //     image:imgPath[0]
+            // },
+            name: {
+                formatter: '{value}',
+                textStyle: {
+                    fontSize: 14, //外圈标签字体大小
+                    color: '#5b81cb' //外圈标签字体颜色
+                }
+            },
+            splitArea: { // 坐标轴在 grid 区域中的分隔区域，默认不显示。
+                show: true,
+                areaStyle: { // 分隔区域的样式设置。
+                    color: ['transparent'], // 分隔区域颜色。分隔区域会按数组中颜色的顺序依次循环设置颜色。默认是一个深浅的间隔色。
+                }
+            },
+            // axisLabel:{//展示刻度
+            //     show: true
+            // },
+            axisLine: { //指向外圈文本的分隔线样式
+                lineStyle: {
+                    color: '#153269'
+                }
+            },
+            splitLine: {
+                lineStyle: {
+                    color: '#113865', // 分隔线颜色
+                    width: 1, // 分隔线线宽
+                }
+            }
+        }, ],
+        series: [{
+            name: '雷达图',
+            type: 'radar',
+            itemStyle: {
+                emphasis: {
+                    lineStyle: {
+                        width: 4
+                    }
+                }
+            },
+            data: [ {
+                name: '外贸依存度Top10',
+                value: dependence,
+                symbolSize: 5,
+                "itemStyle": {
+                    "normal": {
+                        color:'rgba(19, 173, 255, 1)',
+                        "borderColor": "rgba(19, 173, 255, 0.4)",
+                        "borderWidth": 8
+                    }
+                },
+                areaStyle: {
+                    "normal": {
+                        "color": "rgba(19, 173, 255, 0.5)"
+                    }
+                },
+                "lineStyle": {
+                    "normal": {
+                        "color": "rgba(19, 173, 255, 1)",
+                        "width": 1,
+                        "type": "dashed"
+                    }
+                },
+            }]
+        }, ]
+    };
+
+    // 3.将配置项设置给echarts实例对象
+    mychart.setOption(option);
+
+    // 4.让图表跟随屏幕自适应
+    window.addEventListener("resize", function() {
+        mychart.resize();
+    });
 }
 
 function chart2_6() {
@@ -630,26 +917,26 @@ function chart_map(){
                 return params.seriesName + '<br/>' + params.name + ' : ' + value;
             }
         },
-        toolbox: {
-            show : true,
-            orient : 'vertical',
-            x: 'right',
-            y: 'center',
-            feature : {
-                mark : {show: true},
-                dataView : {show: true, readOnly: false},
-                restore : {show: true},
-                saveAsImage : {show: true}
-            }
-        },
-        dataRange: {
-            min: 0,
-            max: 1000000,
-            text:['High','Low'],
-            realtime: false,
-            calculable : true,
-            color: ['orangered','yellow','lightskyblue']
-        },
+        // toolbox: {
+        //     show : true,
+        //     orient : 'vertical',
+        //     x: 'right',
+        //     y: 'center',
+        //     feature : {
+        //         mark : {show: true},
+        //         dataView : {show: true, readOnly: false},
+        //         restore : {show: true},
+        //         saveAsImage : {show: true}
+        //     }
+        // },
+        // dataRange: {
+        //     min: 0,
+        //     max: 1000000,
+        //     text:['High','Low'],
+        //     realtime: false,
+        //     calculable : true,
+        //     color: ['orangered','yellow','lightskyblue']
+        // },
         series : [
             {
                 // name: 'World Population (2010)',
@@ -847,4 +1134,9 @@ function chart_map(){
 
     // 3.将配置项设置给echarts实例对象
     mychart.setOption(option);
+
+    // 4.让图表跟随屏幕自适应
+    window.addEventListener("resize", function() {
+        mychart.resize();
+    });
 }

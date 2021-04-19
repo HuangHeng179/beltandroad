@@ -22,27 +22,58 @@ function changePagePosition(){
 //// 国家输入（map、输入框可以实现此输入）
 // 根据国家输入更改图表1
 function changeChart1ByCountry(country_name) {
+    // 发送ajax请求获取数据
+    let data=getGDPDataByCountryName(country_name);
 
+    // 更改图表标题
+    $("#chart1_extend h2:first").html("2014-2019年 "+country_name+"GDP一览");
+
+    // 根据获取的数据更改图表
+    chart2_1(data['years'],data['gdps']);
 }
+
 // 根据国家输入更改图表2
 function changeChart2ByCountry(country_name) {
     // 发送ajax请求获取数据
     let data=getBilateralInvestmentByCountryName(country_name);
 
     // 更改图表标题
-    $("#chart2_extend h2:first").html(country_name+"对中国进口额、出口额和进出口总额");
+    if(country_name==="中国") {
+        $("#chart2_extend h2:first").html("中国对外的进口额、出口额和进出口总额");
+    }else
+        $("#chart2_extend h2:first").html(country_name + "对中国进口额、出口额和进出口总额");
 
     // 根据获取的数据更改图表
     chart2_2(data['year'],data['total'],data['inside'],data['outside']);
 }
+
 // 根据国家输入更改图表3
+
 // 根据国家输入更改图表4
 // 根据国家输入更改图表5
+function changeChart5ByCountry(country_name) {
+    // 发送ajax请求获取数据
+    let data=getDependenceByCountryName(country_name);
+
+    // 更改图表标题
+    if(country_name==="中国")
+        $("#chart5_extend h2:first").html("2014-2018年 中国的外贸依存度展示");
+    else
+        $("#chart5_extend h2:first").html("2014-2018年 "+country_name+"对中国的外贸依存度展示");
+
+    let years=[];
+    for(let j = 0,len=data['years'].length; j < len; j++) {
+        years.push({name:data['years'][j],max:100});
+    }
+    // 根据获取的数据更改图表
+    chart2_5(years,data['dependence']);
+}
 // 根据国家输入更改图表6
 // 根据国家输入更改所有图表
 function changeAllChartByCountry(country_name) {
     changeChart1ByCountry(country_name);
     changeChart2ByCountry(country_name);
+    changeChart5ByCountry(country_name);
 }
 
 
@@ -64,6 +95,30 @@ function changeChart1ByYear() {
 }
 
 // 根据时间轴时间更改图表2
+function changeChart2ByYear(){
+    // 获取时间轴时间
+    let year=parseInt($(".act:first").text());
+
+    // 发送ajax请求获取数据
+    let data=getBilateralInvestmentByYear(year);
+
+    // 更改图表的标题
+    $("#chart2_extend h2:first").html("对中国进出口总额Top8&nbsp&nbsp——"+year+"年");
+
+    // 数据数组的构建
+    let xData=[],seriesDataInside=[],seriesDataOutside=[],seriesDataTotal=[];
+    data.forEach(function (e) {
+        xData.push(e[0]);
+        seriesDataTotal.push(e[1]);
+        seriesDataInside.push(e[2]);
+        seriesDataOutside.push(e[3]);
+    });
+
+    // 根据获取的数据更改图表
+    chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal);
+}
+
+
 // 根据时间轴时间更改图表3
 function changeChart3ByYear() {
     // 获取时间轴时间
@@ -119,6 +174,7 @@ function changeChart5ByYear() {
 // 根据时间轴更改所有图表
 function changeAllChartByYear() {
     changeChart1ByYear();
+    changeChart2ByYear();
     changeChart3ByYear();
     changeChart5ByYear();
 }

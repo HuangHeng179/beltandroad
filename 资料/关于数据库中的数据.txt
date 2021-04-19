@@ -1,0 +1,2 @@
+country表中的GDP数据的单位是亿美元
+bilateralinvestment表中的进出口额单位是万美元
