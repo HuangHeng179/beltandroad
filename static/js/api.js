@@ -225,3 +225,59 @@ function getDependenceByCountryName(country_name) {
     // console.log(retData);
     return retData;
 }
+
+// 9.根据时间获取FDI(外商直接投资总额)Top10
+function getFDITop10ByYear(year) {
+    let retData=[]
+    let data={
+        'year':year
+    }
+
+    $.ajax({
+        url: "/beltandroad/getFDITop10ByYear",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}
+
+// 10.根据国家名获取FDI(外商直接投资总额)Top10
+function getFDIByCountryName(country_name) {
+    let retData=[]
+    let data={
+        'country_name':country_name
+    }
+
+    $.ajax({
+        url: "/beltandroad/getFDIByCountryName",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}

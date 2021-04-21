@@ -123,7 +123,10 @@ def getGDPByCountryName(country_name):
 
     # gdp数据处理
     for i in data[1]:
-        tempdata1.append(float(i[:-1]))
+        if i==None:
+            tempdata1.append(0)
+        else:
+            tempdata1.append(float(i[:-1]))
 
     # 返回值的构建
     res = {}
@@ -150,6 +153,40 @@ def getDependenceByCountryName(country_name):
     res['years'] = tempdata0
     res['dependence'] = tempdata1
     return res
+
+
+def getFDITop10ByYear(year):
+    data = getDataFromDB.getFDIDataByYear(year)
+    data.sort(key=lambda x: x[1], reverse=True)
+    # 返回值的构建
+    res = {'countrys':[],'fdiData':[]}
+    for i in range(10):
+        res['countrys'].append(data[i][0])
+        res['fdiData'].append(round(data[i][1],2))
+    res['countrys'].reverse()
+    res['fdiData'].reverse()
+    return res
+
+
+def getFDIByCountryName(country_name):
+    data = getDataFromDB.getFDIDataByCountryName(country_name)
+    # 收集data[0]处理之后的结果
+    tempdata0 = []
+    # 收集data[1]和data[2]处理之后的结果
+    tempdata1 = []
+    # 年份数据处理
+    for i in data[0]:
+        tempdata0.append(str(i)+"年")
+
+    # 外贸依存度数据处理
+    for i in data[1]:
+        tempdata1.append(round(i,2))
+    # 返回值的构建
+    res = {}
+    res['years'] = tempdata0
+    res['fdiData'] = tempdata1
+    return res
+
 
 if __name__ == '__main__':
     # print(fuzzySearchCountry('斯坦'))

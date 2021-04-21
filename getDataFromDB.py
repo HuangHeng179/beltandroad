@@ -179,7 +179,7 @@ def getDependenceDataByCountryName(country_name):
         yeartotal+=str(i)+"_total,"
     yeartotal = yeartotal[:-1]
     sqlText = "select " + yeartotal + " from bilateralinvestment where countryname='{}';".format(country_name)
-    print(sqlText)
+    # print(sqlText)
     cur.execute(sqlText)
     totaldata = cur.fetchall()
     totalret = []
@@ -188,6 +188,39 @@ def getDependenceDataByCountryName(country_name):
     closeDB(cur, conn)
     return years,gdpret,totalret
 
+
+# 8.根据时间获取64个国家的FDI(外商直接投资)
+def getFDIDataByYear(year):
+    conn, cur = connectDB()
+    sqlText = "select country_name,"+str(year)+"_fdi from FDI;"
+    cur.execute(sqlText)
+    data = cur.fetchall()
+    res = []
+    for i in data:
+        if i[1]!="暂无数据":
+            res.append([i[0],float(i[1][:-3])])
+    # print(len(res))
+    closeDB(cur, conn)
+    return res
+
+
+# 9.根据国家名称获取2014年-2019年FDI数据
+def getFDIDataByCountryName(country_name):
+    conn, cur = connectDB()
+    years = [2014, 2015, 2016,2017,2018,2019]
+    yearfdis=""
+    for i in years:
+        yearfdis+=str(i)+"_fdi,"
+    yearfdis=yearfdis[:-1]
+    sqlText = "select "+yearfdis+" from FDI where country_name='{}';".format(country_name)
+    cur.execute(sqlText)
+    fdidata = cur.fetchall()
+    fdiret=[]
+    for i in fdidata[0]:
+        if i!="暂无数据":
+            fdiret.append(float(i[:-3]))
+    closeDB(cur, conn)
+    return years,fdiret
 
 
 ## 一些全局变量，用于提高访存效率

@@ -50,6 +50,17 @@ function changeChart2ByCountry(country_name) {
 // 根据国家输入更改图表3
 
 // 根据国家输入更改图表4
+function changeChart4ByCountry(country_name) {
+    // 发送ajax请求获取数据
+    let data=getFDIByCountryName(country_name);
+
+    // 更改图表标题
+    $("#chart4_extend h2:first").html("2014-2019年 "+country_name+"外商直接投资一览");
+
+    // 根据获取的数据更改图表
+    chart2_4(data['years'],data['fdiData']);
+}
+
 // 根据国家输入更改图表5
 function changeChart5ByCountry(country_name) {
     // 发送ajax请求获取数据
@@ -68,11 +79,13 @@ function changeChart5ByCountry(country_name) {
     // 根据获取的数据更改图表
     chart2_5(years,data['dependence']);
 }
+
 // 根据国家输入更改图表6
 // 根据国家输入更改所有图表
 function changeAllChartByCountry(country_name) {
     changeChart1ByCountry(country_name);
     changeChart2ByCountry(country_name);
+    changeChart4ByCountry(country_name);
     changeChart5ByCountry(country_name);
 }
 
@@ -145,6 +158,20 @@ function changeChart3ByYear() {
 }
 
 // 根据时间轴时间更改图表4
+function changeChart4ByYear() {
+    // 获取时间轴时间
+    let year=parseInt($(".act:first").text());
+
+    // 发送ajax请求获取数据
+    let data=getFDITop10ByYear(year);
+
+    // 更改图表的标题
+    $("#chart4_extend h2:first").html("外商直接投资 Top10&nbsp&nbsp——"+year+"年");
+
+    // 根据获取的数据更改图表
+    chart1_4(data['countrys'],data['fdiData']);
+}
+
 // 根据时间轴时间更改图表5
 function changeChart5ByYear() {
     // 获取时间轴时间
@@ -176,6 +203,7 @@ function changeAllChartByYear() {
     changeChart1ByYear();
     changeChart2ByYear();
     changeChart3ByYear();
+    changeChart4ByYear();
     changeChart5ByYear();
 }
 

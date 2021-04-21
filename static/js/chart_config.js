@@ -251,8 +251,79 @@ function chart1_3(year,areaArr) {
 }
 
 
-function chart1_4() {
+function chart1_4(countrys,fdiData) {
+    // 1.实例化对象
+    let mychart=echarts.init(document.querySelector("#chart4"));
 
+    // console.log(mychart);
+    // 2.指定配置项和数据
+    var labelRight = {
+        position: 'right'
+    };
+    let option = {
+        color:["#2f89cf"],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            },
+            formatter:function (params) {
+                // console.log(params)
+                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+params[0].value+"亿美元"
+            }
+        },
+        grid: {
+            left: '5%',
+            top:'0px',
+            right: '5%',
+            bottom: '0%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            position: 'top',
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            },
+            axisLabel:{
+                color:"white",
+            },
+        },
+        yAxis: {
+            type: 'category',
+            axisLine: {show: false},
+            axisLabel: {show: false},
+            axisTick: {show: false},
+            splitLine: {show: false},
+            data: countrys
+        },
+        series: [
+            {
+                name: 'FDI外商直接投资',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    formatter: '{b}'
+                },
+                data: fdiData,
+                itemStyle: {
+                    // 修改柱子圆角
+                    barBorderRadius: 5
+                },
+            }
+        ]
+    };
+
+    // 3.将配置项设置给echarts实例对象
+    mychart.setOption(option);
+
+    // 4.让图表跟随屏幕自适应
+    window.addEventListener("resize", function() {
+        mychart.resize();
+    });
 }
 
 function chart1_5(indicator,seriesData) {
@@ -496,7 +567,7 @@ function chart2_1(years,gdps) {
 }
 
 function chart2_2(year,total,inside,outside) {
-    console.log(year)
+    // console.log(year)
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart2"));
 
@@ -782,8 +853,79 @@ function chart2_3() {
 
 }
 
-function chart2_4() {
+function chart2_4(years,fdiData) {
+    // 1.实例化对象
+    let mychart=echarts.init(document.querySelector("#chart4"));
 
+    // console.log(mychart);
+    // 2.指定配置项和数据
+    var labelRight = {
+        position: 'right'
+    };
+    let option = {
+        color:["#2f89cf"],
+        tooltip: {
+            trigger: 'axis',
+            axisPointer: {            // 坐标轴指示器，坐标轴触发有效
+                type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+            },
+            formatter:function (params) {
+                // console.log(params)
+                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+params[0].value+"亿美元"
+            }
+        },
+        grid: {
+            left: '5%',
+            top:'0px',
+            right: '5%',
+            bottom: '0%',
+            containLabel: true
+        },
+        xAxis: {
+            type: 'value',
+            position: 'top',
+            splitLine: {
+                lineStyle: {
+                    type: 'dashed'
+                }
+            },
+            axisLabel:{
+                color:"white",
+            },
+        },
+        yAxis: {
+            type: 'category',
+            axisLine: {show: false},
+            axisLabel: {show: false},
+            axisTick: {show: false},
+            splitLine: {show: false},
+            data: years
+        },
+        series: [
+            {
+                name: 'FDI外商直接投资',
+                type: 'bar',
+                stack: '总量',
+                label: {
+                    show: true,
+                    formatter: '{b}'
+                },
+                data: fdiData,
+                itemStyle: {
+                    // 修改柱子圆角
+                    barBorderRadius: 5
+                },
+            }
+        ]
+    };
+
+    // 3.将配置项设置给echarts实例对象
+    mychart.setOption(option);
+
+    // 4.让图表跟随屏幕自适应
+    window.addEventListener("resize", function() {
+        mychart.resize();
+    });
 }
 
 function chart2_5(years,dependence) {

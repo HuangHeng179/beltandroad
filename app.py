@@ -102,6 +102,24 @@ def getDependenceByCountryName():
     # res.headers['Access-Control-Allow-Headers'] = '*'
     return res
 
+@app.route('/beltandroad/getFDITop10ByYear',methods=['POST'])
+def getFDITop10ByYear():
+    year=int(request.form.get('year'))
+    res=make_response(jsonify(functions.getFDITop10ByYear(year)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
+@app.route('/beltandroad/getFDIByCountryName',methods=['POST'])
+def getFDIByCountryName():
+    country_name=request.form.get('country_name')
+    res=make_response(jsonify(functions.getFDIByCountryName(country_name)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)
