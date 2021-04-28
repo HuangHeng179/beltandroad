@@ -428,9 +428,9 @@ function chart1_5(indicator,seriesData) {
     });
 }
 
-function chart1_6(){
+function chart1_6(title,link,value){
     // 1.实例化对象
-    let mychart=echarts.init(document.querySelector(".horizon .chart"));
+    let mychart=echarts.init(document.querySelector("#chart6"));
 
 
     // console.log(mychart);
@@ -444,26 +444,56 @@ function chart1_6(){
             trigger: 'axis',
             axisPointer: {
                 type: 'shadow'
+            },
+            formatter:function (params) {
+                // console.log(params)
+                return title[params[0].dataIndex]+'<br/>'+params[0].marker+"热度"+": "+params[0].value
             }
         },
-        legend: {
-            // data: ['2011年', '2012年']
-            data: [ '2012年']
-        },
+        // legend: {
+        //     // data: ['2011年', '2012年']
+        //     data: [ '2012年']
+        // },
         grid: {
-            left: '0%',
-            top:'10px',
-            right: '0%',
-            bottom: '4%',
+            left: '5%',
+            top:'0px',
+            right: '5%',
+            bottom: '0%',
             containLabel: true
         },
         xAxis: {
             type: 'value',
-            boundaryGap: [0, 0.01]
+            boundaryGap: [0, 0.01],
+            axisLabel:{
+                color:"white",
+            },
+            // 不显示x坐标轴的样式
+            axisLine:{
+                show:false
+            },
+            // y轴分割线的样式
+            splitLine:{
+                lineStyle:{
+                    color:"rgba(255,255,255,.1)"
+                }
+            }
         },
         yAxis: {
             type: 'category',
-            data: ['巴西', '印尼', '美国', '印度', '中国']
+            data: ['新闻10','新闻9','新闻8','新闻7','新闻6','新闻5','新闻4','新闻3','新闻2','新闻1'],
+            axisLabel:{
+                color:"white",
+            },
+            // 不显示x坐标轴的样式
+            axisLine:{
+                show:false
+            },
+            // y轴分割线的样式
+            splitLine:{
+                lineStyle:{
+                    color:"rgba(255,255,255,.1)"
+                }
+            }
         },
         series: [
             // {
@@ -474,12 +504,26 @@ function chart1_6(){
             {
                 name: '2012年',
                 type: 'bar',
-                data: [19325, 23438, 31000, 121594, 134141, 681807]
+                data: value,
+                itemStyle: {
+                    // 修改柱子圆角
+                    barBorderRadius: 5
+                },
             }
         ]
     };
     // 3.将配置项设置给echarts实例对象
     mychart.setOption(option);
+
+    mychart.on('click',  function(param){
+       window.open(link[param.dataIndex])
+    });
+
+    // 4.让图表跟随屏幕自适应
+    window.addEventListener("resize", function() {
+        mychart.resize();
+    });
+
 }
 
 function chart2_1(years,gdps) {

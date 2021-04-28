@@ -81,12 +81,20 @@ function changeChart5ByCountry(country_name) {
 }
 
 // 根据国家输入更改图表6
+function changeChart6(){
+    // 发送ajax请求获取数据
+    let data=get10News();
+
+    chart1_6(data['title'],data['link'],data['value']);
+}
+
 // 根据国家输入更改所有图表
 function changeAllChartByCountry(country_name) {
     changeChart1ByCountry(country_name);
     changeChart2ByCountry(country_name);
     changeChart4ByCountry(country_name);
     changeChart5ByCountry(country_name);
+    changeChart6();
 }
 
 
@@ -205,6 +213,7 @@ function changeAllChartByYear() {
     changeChart3ByYear();
     changeChart4ByYear();
     changeChart5ByYear();
+    changeChart6();
 }
 
 

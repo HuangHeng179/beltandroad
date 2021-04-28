@@ -187,6 +187,12 @@ def getFDIByCountryName(country_name):
     res['fdiData'] = tempdata1
     return res
 
+def get10News():
+    data=getDataFromDB.get10News()
+
+    # 返回值的构建
+    res={'title':data[0],'link':data[1],'value':data[2]}
+    return res
 
 if __name__ == '__main__':
     # print(fuzzySearchCountry('斯坦'))

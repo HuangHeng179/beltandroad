@@ -120,6 +120,14 @@ def getFDIByCountryName():
     # res.headers['Access-Control-Allow-Headers'] = '*'
     return res
 
+@app.route('/beltandroad/get10News',methods=['GET'])
+def get10News():
+    # country_name=request.form.get('country_name')
+    res=make_response(jsonify(functions.get10News()))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)

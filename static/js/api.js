@@ -281,3 +281,27 @@ function getFDIByCountryName(country_name) {
     // console.log(retData);
     return retData;
 }
+
+// 10.获取10条新闻
+function get10News() {
+    let retData=[]
+
+    $.ajax({
+        url: "/beltandroad/get10News",
+        type: 'get',
+        async : false,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}
