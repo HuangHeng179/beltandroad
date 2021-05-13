@@ -305,3 +305,31 @@ function get10News() {
     // console.log(retData);
     return retData;
 }
+
+// 获取map数据
+function getMapDatasByYear(year) {
+    let retData=[]
+    let data={
+        'year':year
+    }
+
+    $.ajax({
+        url: "/beltandroad/getMapDatasByYear",
+        type: 'post',
+        async : false,
+        data: data,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}

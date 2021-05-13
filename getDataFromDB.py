@@ -198,7 +198,7 @@ def getFDIDataByYear(year):
     data = cur.fetchall()
     res = []
     for i in data:
-        if i[1]!="暂无数据":
+        if i[1]!=None:
             res.append([i[0],float(i[1][:-3])])
     # print(len(res))
     closeDB(cur, conn)
@@ -218,7 +218,7 @@ def getFDIDataByCountryName(country_name):
     fdidata = cur.fetchall()
     fdiret=[]
     for i in fdidata[0]:
-        if i!="暂无数据":
+        if i!=None:
             fdiret.append(float(i[:-3]))
     closeDB(cur, conn)
     return years,fdiret
@@ -266,6 +266,34 @@ def get10News():
     return newsTitle,newsLink,valuelist
 
 
+# 根据年份获取65国的四个数据:GDP,total,FDI,外贸依存度
+def getDatasByYear(year):
+    conn, cur = connectDB()
+    sqlText = "SELECT B.countryname,B."+str(year)+"_total,C."+str(year)+"_total_gdp,F."+str(year)+"_fdi from bilateralinvestment B left join country C on B.countryname=C.country_name left join FDI F on B.countryname=F.country_name;"
+    cur.execute(sqlText)
+    data = cur.fetchall()
+    res = []
+    for i in data:
+        temp={"name":"","GDP":"","Total":"","FDI":"","YiCunDu":""}
+        temp["name"]=i[0]
+        temp["GDP"]=i[2]
+        temp["Total"]=i[1]
+        temp["FDI"]=i[3]
+        if i[2]!=None and i[1]!=None:
+            temp["YiCunDu"]=str(int(float(i[1][:-3])/(100*float(i[2][:-1]))))+"%"
+        else:
+            temp["YiCunDu"]="暂无数据"
+        if i[2] == None:
+            temp["GDP"] = "暂无数据"
+        if i[3] == None:
+            temp["FDI"] = "暂无数据"
+        if i[1]==None:
+            temp["Total"]="暂无数据"
+        res.append(temp.copy())
+    closeDB(cur, conn)
+    return res
+
+
 ## 一些全局变量，用于提高访存效率
 allCountries=getAllCountries()
 
@@ -277,5 +305,8 @@ if __name__ == '__main__':
     # print(get68Country())
     # print(getAreaDataByYear(2017))
     # print(getDependenceDataByCountryName("中国"))
-    print(get10News())
-    pass
+    # print(get10News())
+    # print("[")
+    # for i in allCountries:
+    #     print("'"+i+"'",end=",")
+    print(getDatasByYear(2014),len(getDatasByYear(2014)))

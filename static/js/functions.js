@@ -90,6 +90,9 @@ function changeChart6(){
 
 // 根据国家输入更改所有图表
 function changeAllChartByCountry(country_name) {
+    // 将输入框中的内容改成对应的国家名
+    $("#input_search").val(country_name);
+
     changeChart1ByCountry(country_name);
     changeChart2ByCountry(country_name);
     changeChart4ByCountry(country_name);
@@ -189,7 +192,7 @@ function changeChart5ByYear() {
     let data=getDependenceByYear(year);
 
     // 更改图表的标题
-    $("#chart5_extend h2:first").html("一带一路”沿线国家外贸依存度 Top10&nbsp&nbsp——"+year+"年");
+    $("#chart5_extend h2:first").html("“一带一路”沿线国家外贸依存度 Top10&nbsp&nbsp——"+year+"年");
 
     // 构建参数
     let indicator=[];
@@ -206,6 +209,18 @@ function changeChart5ByYear() {
 
 // 根据时间轴时间更改图表6
 
+// 根据时间轴时间更改地图
+function changeChartMapByYear() {
+    // 获取时间轴时间
+    let year=parseInt($(".act:first").text());
+
+    // 发送ajax请求获取数据
+    let data=getMapDatasByYear(year);
+
+    // 构建参数
+    chart_map(year,data);
+}
+
 // 根据时间轴更改所有图表
 function changeAllChartByYear() {
     changeChart1ByYear();
@@ -214,6 +229,7 @@ function changeAllChartByYear() {
     changeChart4ByYear();
     changeChart5ByYear();
     changeChart6();
+    changeChartMapByYear();
 }
 
 

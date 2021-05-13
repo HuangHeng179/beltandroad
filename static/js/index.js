@@ -13,7 +13,6 @@ $(function () {
     $('#on_changes').on('click','li',function () {
         let str=$(this).html();
         str=str.replaceAll("&nbsp;","");
-        $("#input_search").val(str);
         changeAllChartByCountry(str);
     });
 
@@ -27,20 +26,5 @@ $(function () {
     $(".sNext").click(changeAllChartByYear);
 
     // 7张统计图的初始渲染
-    // chart1的初始渲染
     changeAllChartByYear();
-    // chart2();
-    // chart3();
-    // chart4();
-    // chart5();
-    // chart6();
-    // chart7();
-
-    chart_map();
-
-
-    // changeAllChartByCountry("俄罗斯");
-
-
-    // chart1_5();
 });

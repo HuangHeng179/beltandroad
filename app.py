@@ -129,5 +129,14 @@ def get10News():
     # res.headers['Access-Control-Allow-Headers'] = '*'
     return res
 
+@app.route('/beltandroad/getMapDatasByYear',methods=['POST'])
+def getMapDatasByYear():
+    year=int(request.form.get('year'))
+    res=make_response(jsonify(functions.getMapDatasByYear(year)))
+    # res.headers['Access-Control-Allow-Origin'] = '*'
+    # res.headers['Access-Control-Allow-Method'] = '*'
+    # res.headers['Access-Control-Allow-Headers'] = '*'
+    return res
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)

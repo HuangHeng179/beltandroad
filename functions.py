@@ -194,6 +194,11 @@ def get10News():
     res={'title':data[0],'link':data[1],'value':data[2]}
     return res
 
+def getMapDatasByYear(year):
+    data=getDataFromDB.getDatasByYear(year)
+
+    return data
+
 if __name__ == '__main__':
     # print(fuzzySearchCountry('斯坦'))
     # print(getGDPTop8(2014))
