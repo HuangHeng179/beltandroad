@@ -138,5 +138,9 @@ def getMapDatasByYear():
     # res.headers['Access-Control-Allow-Headers'] = '*'
     return res
 
+@app.route('/beltandroad/test')
+def test():
+    return render_template("index2.html")
+
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)

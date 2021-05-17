@@ -272,10 +272,10 @@ def getDatasByYear(year):
     sqlText = "SELECT B.countryname,B."+str(year)+"_total,C."+str(year)+"_total_gdp,F."+str(year)+"_fdi from bilateralinvestment B left join country C on B.countryname=C.country_name left join FDI F on B.countryname=F.country_name;"
     cur.execute(sqlText)
     data = cur.fetchall()
-    res = []
+    res = {}
     for i in data:
-        temp={"name":"","GDP":"","Total":"","FDI":"","YiCunDu":""}
-        temp["name"]=i[0]
+        # temp={"name":"","GDP":"","Total":"","FDI":"","YiCunDu":""}
+        temp={}
         temp["GDP"]=i[2]
         temp["Total"]=i[1]
         temp["FDI"]=i[3]
@@ -289,7 +289,7 @@ def getDatasByYear(year):
             temp["FDI"] = "暂无数据"
         if i[1]==None:
             temp["Total"]="暂无数据"
-        res.append(temp.copy())
+        res[i[0]] = temp.copy()
     closeDB(cur, conn)
     return res
 

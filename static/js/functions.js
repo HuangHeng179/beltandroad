@@ -73,9 +73,13 @@ function changeChart5ByCountry(country_name) {
         $("#chart5_extend h2:first").html("2014-2018年 "+country_name+"对中国的外贸依存度展示");
 
     let years=[];
+    let maxNum=Math.max(...data['dependence']);
+    console.log(maxNum);
     for(let j = 0,len=data['years'].length; j < len; j++) {
-        years.push({name:data['years'][j],max:100});
+        years.push({name:data['years'][j],max:Math.ceil(maxNum/10)*10});
     }
+    console.log(years);
+    console.log(data);
     // 根据获取的数据更改图表
     chart2_5(years,data['dependence']);
 }
@@ -98,6 +102,7 @@ function changeAllChartByCountry(country_name) {
     changeChart4ByCountry(country_name);
     changeChart5ByCountry(country_name);
     changeChart6();
+
 }
 
 
@@ -197,8 +202,14 @@ function changeChart5ByYear() {
     // 构建参数
     let indicator=[];
     let seriesData=[];
+    let maxnum=0;
+    for (let j = 0,len=data.length; j < len; j++) {
+        if(data[j][1]>maxnum){
+            maxnum=data[j][1];
+        }
+    }
     for(let j = 0,len=data.length; j < len; j++) {
-        indicator.push({name:data[j][0],max:100});
+        indicator.push({name:data[j][0],max:Math.ceil(maxnum/10)*10}); //向上整除 4/3=2;});
         seriesData.push(data[j][1]);
     }
     // console.log(seriesData)
@@ -230,6 +241,7 @@ function changeAllChartByYear() {
     changeChart5ByYear();
     changeChart6();
     changeChartMapByYear();
+    $("#input_search").val("");
 }
 
 

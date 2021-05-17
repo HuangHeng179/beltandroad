@@ -12,7 +12,7 @@
         #container {
             margin: 0 auto;
         }
-        div.search {padding: 30px 0 0;}
+        div.search {padding: 20px 0 20px;}
 
         form {
             position: relative;
@@ -206,7 +206,9 @@
                 <!-- 4. 指定配置项和数据（option） -->
                 <!-- 5. 将配置项设置给Echarts实例对象 -->
                 <div class="map">
-                    <div class="chart"></div>
+                    <div class="chart">
+{#                        <div class="chart-footer"></div>#}
+                    </div>
 
                     <!-- 球体模块制作 -->
                     <div class="map1"></div>
@@ -262,9 +264,11 @@
             </div>
 
         </section>
+        <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=6c2d2409b84ab38125d9961257226d4f&plugin=AMap.Scale,AMap.ToolBar,AMap.CustomLayer,AMap.DistrictLayer"></script>
         <script src="/static/js/resources/flexible.js"></script>
         <script src="/static/js/resources/jquery-1.11.1.min.js"></script>
         <script src="/static/js/resources/echarts.min.js"></script>
+        <script src="/static/js/resources/echarts-extension-amap.min.js"></script>
         <script src="/static/js/resources/world.js"></script>
         <script src="/static/js/resources/jquery.SuperSlide2.1.2.js"></script>
 

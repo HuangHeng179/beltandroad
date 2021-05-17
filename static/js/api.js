@@ -333,3 +333,27 @@ function getMapDatasByYear(year) {
     // console.log(retData);
     return retData;
 }
+
+// 获取world.json文件
+function getWorldJson() {
+    let retData=[]
+
+    $.ajax({
+        url: "/static/json/world.json",
+        type: 'get',
+        async : false,
+        success: function (res) {
+            // 将数据放进retData中
+            retData=res
+            // console.log(retData)
+        },
+        error: function (error) {
+            // 输出错误信息
+            console.log(error)
+            // 不对retData进行操作
+        }
+    });
+
+    // console.log(retData);
+    return retData;
+}
