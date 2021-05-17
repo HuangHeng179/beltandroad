@@ -1,3 +1,5 @@
+var chart1_6Instance=undefined;
+
 // 点击标题改变位置
 function changePagePosition(){
     // bridge 为指定跳转到该位置的DOM节点    
@@ -74,12 +76,12 @@ function changeChart5ByCountry(country_name) {
 
     let years=[];
     let maxNum=Math.max(...data['dependence']);
-    console.log(maxNum);
+    // console.log(maxNum);
     for(let j = 0,len=data['years'].length; j < len; j++) {
         years.push({name:data['years'][j],max:Math.ceil(maxNum/10)*10});
     }
-    console.log(years);
-    console.log(data);
+    // console.log(years);
+    // console.log(data);
     // 根据获取的数据更改图表
     chart2_5(years,data['dependence']);
 }
@@ -88,8 +90,13 @@ function changeChart5ByCountry(country_name) {
 function changeChart6(){
     // 发送ajax请求获取数据
     let data=get10News();
+    if(chart1_6Instance!=undefined){
+        echarts.dispose(chart1_6Instance);
+        chart1_6Instance=chart1_6(data['title'],data['link'],data['value']);
+    }else{
+        chart1_6Instance=chart1_6(data['title'],data['link'],data['value']);
+    }
 
-    chart1_6(data['title'],data['link'],data['value']);
 }
 
 // 根据国家输入更改所有图表

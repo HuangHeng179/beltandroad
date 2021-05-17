@@ -504,13 +504,15 @@ function chart1_6(title,link,value){
     mychart.setOption(option);
 
     mychart.on('click',  function(param){
-       window.open(link[param.dataIndex])
+        // console.log(param);
+       window.open(link[param.dataIndex]);
     });
 
     // 4.让图表跟随屏幕自适应
     window.addEventListener("resize", function() {
         mychart.resize();
     });
+    return mychart;
 }
 
 function chart2_1(years,gdps) {
@@ -643,13 +645,6 @@ function chart2_2(year,total,inside,outside) {
                 },
             },
         },
-        // grid: {
-        //     top: '15%',
-        //     left: '5%',
-        //     right: '5%',
-        //     bottom: '15%',
-        //     // containLabel: true
-        // },
         grid: {
             left: '0%',
             top:'12px',
