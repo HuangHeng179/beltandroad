@@ -149,7 +149,8 @@ def getBIDataByYear(year):
     data = cur.fetchall()
     res = []
     for i in data:
-        if i[0]!="中国":
+        if i[0]!="中国" and i[1]!="" and i[2]!="" and i[3]!="":
+            print(i)
             res.append([i[0],float(i[1][:-3]),float(i[2][:-3]),float(i[3][:-3])])
     # print(len(res))
     closeDB(cur, conn)
@@ -294,7 +295,8 @@ def getDatasByYear(year):
         temp["GDP"]=i[2]
         temp["Total"]=i[1]
         temp["FDI"]=i[3]
-        if i[2]!=None and i[1]!=None:
+        if i[2]!=None and i[1]!=None and i[2]!="" and i[1]!="":
+            print(i[1],i[2])
             temp["YiCunDu"]=str(int(float(i[1][:-3])/(100*float(i[2][:-1]))))+"%"
         else:
             temp["YiCunDu"]="暂无数据"
@@ -325,4 +327,4 @@ if __name__ == '__main__':
     # print("[")
     # for i in allCountries:
     #     print("'"+i+"'",end=",")
-    print(getDatasByYear(2014),len(getDatasByYear(2014)))
+    print(getDatasByYear(2019),len(getDatasByYear(2019)))

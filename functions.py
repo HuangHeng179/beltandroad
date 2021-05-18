@@ -213,6 +213,6 @@ def fuzzySearchCountry_en(countryname_en):
 if __name__ == '__main__':
     # print(fuzzySearchCountry('斯坦'))
     # print(getGDPTop8(2014))
-    print(getBilateralInvestmentByCountryName('俄罗斯'))
-    # print(getBilateralInvestmentByYear(2016))
+    # print(getBilateralInvestmentByCountryName('俄罗斯'))
+    print(getBilateralInvestmentByYear(2019))
     pass
