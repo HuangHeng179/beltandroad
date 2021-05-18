@@ -138,9 +138,19 @@ def getMapDatasByYear():
     # res.headers['Access-Control-Allow-Headers'] = '*'
     return res
 
-@app.route('/beltandroad/test')
+@app.route('/beltandroad/en')
 def test():
-    return render_template("index2.html")
+    return render_template("index_en.html")
+
+@app.route('/beltandroad/getSomeCountries_en',methods=['GET','POST'])
+def getSomecountries_en():
+    if request.method=="POST":
+        countryString=request.form.get('str_country')
+        res=make_response(jsonify(functions.fuzzySearchCountry_en(countryString)))
+        # res.headers['Access-Control-Allow-Origin'] = '*'
+        # res.headers['Access-Control-Allow-Method'] = '*'
+        # res.headers['Access-Control-Allow-Headers'] = '*'
+        return res
 
 if __name__ == '__main__':
     app.run(host='127.0.0.1',port=5000,debug=True)

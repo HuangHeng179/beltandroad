@@ -1,3 +1,143 @@
+var EnglishMap=hMap={
+    '阿富汗': 'Afghanistan',
+    '阿尔巴尼亚': 'Albania',
+    '亚美尼亚': 'Armenia',
+    '阿塞拜疆': 'Azerbaijan',
+    '孟加拉国': 'Bangladesh',
+    '保加利亚': 'Bulgaria',
+    '白俄罗斯': 'Belarus',
+    '文莱': 'Brunei',
+    '不丹': 'Bhutan',
+    '柬埔寨': 'Cambodia',
+    '中国': 'China',
+    '克罗地亚': 'Croatia',
+    '捷克': 'Czech Rep.',
+    '埃及': 'Egypt',
+    '爱沙尼亚': 'Estonia',
+    '匈牙利': 'Hungary',
+    '印度': 'India',
+    '印度尼西亚': 'Indonesia',
+    '伊朗': 'Iran',
+    '伊拉克': 'Iraq',
+    '以色列': 'Israel',
+    '哈萨克斯坦': 'Kazakhstan',
+    '科威特': 'Kuwait',
+    '吉尔吉斯斯坦': 'Kyrgyzstan',
+    '老挝': 'Lao PDR',
+    '拉脱维亚': 'Latvia',
+    '黎巴嫩': 'Lebanon',
+    '立陶宛': 'Lithuania',
+    '北马其顿': 'Macedonia',
+    '马来西亚': 'Malaysia',
+    '摩尔多瓦': 'Moldova',
+    '蒙古国': 'Mongolia',
+    '黑山': 'Montenegro',
+    '缅甸': 'Myanmar',
+    '尼泊尔': 'Nepal',
+    '阿曼': 'Oman',
+    '巴基斯坦': 'Pakistan',
+    '菲律宾': 'Philippines',
+    '波兰': 'Poland',
+    '卡塔尔': 'Qatar',
+    '罗马尼亚': 'Romania',
+    '俄罗斯': 'Russia',
+    '沙特阿拉伯': 'Saudi Arabia',
+    '塞尔维亚': 'Serbia',
+    '斯洛伐克': 'Slovakia',
+    '斯洛文尼亚': 'Slovenia',
+    '斯里兰卡': 'Sri Lanka',
+    '叙利亚': 'Syria',
+    '塔吉克斯坦': 'Tajikistan',
+    '泰国': 'Thailand',
+    '东帝汶': 'Timor-Leste',
+    '土耳其': 'Turkey',
+    '土库曼斯坦': 'Turkmenistan',
+    '乌克兰': 'Ukraine',
+    '乌兹别克斯坦': 'Uzbekistan',
+    '越南': 'Vietnam',
+    '也门': 'Yemen',
+    '巴勒斯坦': 'Palestine',
+    '新加坡': 'Singapore',
+    '巴林': 'Bahrain',
+    '波黑': 'Bosnia and Herz.',
+    '格鲁吉亚': 'Georgia',
+    '阿联酋': 'United Arab Emirates',
+    '约旦': 'Jordan',
+    '马尔代夫': 'Maldives',
+    "希腊":"Greece",
+    "塞浦路斯": "Cyprus",
+    "意大利": "Italy",
+    "韩国": "Korea",
+};
+
+var ChineseMap={
+	'Afghanistan': '阿富汗',
+	'Albania': '阿尔巴尼亚',
+	'Armenia': '亚美尼亚',
+	'Azerbaijan': '阿塞拜疆',
+	'Bangladesh': '孟加拉国',
+	'Bulgaria': '保加利亚',
+	'Belarus': '白俄罗斯',
+	'Brunei': '文莱',
+	'Bhutan': '不丹',
+	'Cambodia': '柬埔寨',
+	'China': '中国',
+	'Croatia': '克罗地亚',
+	'Czech Rep.': '捷克',
+	'Egypt': '埃及',
+	'Estonia': '爱沙尼亚',
+	'Hungary': '匈牙利',
+	'India': '印度',
+	'Indonesia': '印度尼西亚',
+	'Iran': '伊朗',
+	'Iraq': '伊拉克',
+	'Israel': '以色列',
+	'Kazakhstan': '哈萨克斯坦',
+	'Kuwait': '科威特',
+	'Kyrgyzstan': '吉尔吉斯斯坦',
+	'Lao PDR': '老挝',
+	'Latvia': '拉脱维亚',
+	'Lebanon': '黎巴嫩',
+	'Lithuania': '立陶宛',
+	'Macedonia': '北马其顿',
+	'Malaysia': '马来西亚',
+	'Moldova': '摩尔多瓦',
+	'Mongolia': '蒙古国',
+	'Montenegro': '黑山',
+	'Myanmar': '缅甸',
+	'Nepal': '尼泊尔',
+	'Oman': '阿曼',
+	'Pakistan': '巴基斯坦',
+	'Philippines': '菲律宾',
+	'Poland': '波兰',
+	'Qatar': '卡塔尔',
+	'Romania': '罗马尼亚',
+	'Russia': '俄罗斯',
+	'Saudi Arabia': '沙特阿拉伯',
+	'Serbia': '塞尔维亚',
+	'Slovakia': '斯洛伐克',
+	'Slovenia': '斯洛文尼亚',
+	'Sri Lanka': '斯里兰卡',
+	'Syria': '叙利亚',
+	'Tajikistan': '塔吉克斯坦',
+	'Thailand': '泰国',
+	'Timor-Leste': '东帝汶',
+	'Turkey': '土耳其',
+	'Turkmenistan': '土库曼斯坦',
+	'Ukraine': '乌克兰',
+	'Uzbekistan': '乌兹别克斯坦',
+	'Vietnam': '越南',
+	'Yemen': '也门',
+	'Palestine': '巴勒斯坦',
+	'Singapore': '新加坡',
+	'Bahrain': '巴林',
+	'Bosnia and Herz.': '波黑',
+	'Georgia': '格鲁吉亚',
+	'United Arab Emirates': '阿联酋',
+	'Jordan': '约旦',
+	'Maldives': '马尔代夫',
+};
+
 function chart0() {
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart3"));
@@ -17,8 +157,14 @@ function chart0() {
 
 
 function chart1_1(countries,gdps){
+    let countries_en=[];
+    for(let i=0;i<countries.length;i++){
+        countries_en.push(EnglishMap[countries[i]]);
+    }
+
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart1"));
+
 
     // console.log(mychart);
     // 2.指定配置项和数据
@@ -26,12 +172,15 @@ function chart1_1(countries,gdps){
         color:["#2f89cf"],
         tooltip: {
             trigger: 'axis',
+            position: function(point, params, dom, rect, size){
+                return [point[0]+20,point[1]];
+            },
             axisPointer: {            // 坐标轴指示器，坐标轴触发有效
                 type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
             },
             formatter:function (params) {
                 // console.log(params)
-                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+params[0].value+"亿美元"
+                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+(params[0].value/10).toFixed(2)+" billion dollars"
             }
         },
         grid: {
@@ -44,7 +193,7 @@ function chart1_1(countries,gdps){
         xAxis: [
             {
                 type: 'category',
-                data: countries,
+                data: countries_en,
                 axisTick: {
                     alignWithLabel: true
                 },
@@ -78,7 +227,7 @@ function chart1_1(countries,gdps){
         ],
         series: [
             {
-                name: '国内生产总值',
+                name: 'Gross Domestic Product',
                 type: 'bar',
                 barWidth: '35%',
                 data: gdps,
@@ -100,6 +249,12 @@ function chart1_1(countries,gdps){
 }
 
 function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
+    let xData_en=[];
+    for(let i=0;i<xData.length;i++){
+        xData_en.push(EnglishMap[xData[i]]);
+    }
+
+
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart2"));
 
@@ -108,19 +263,22 @@ function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
     let option = {
         tooltip: {
             trigger: 'axis',
+            position: function(point, params, dom, rect, size){
+                return [point[0]+20,point[1]];
+            },
             axisPointer: {            // 坐标轴指示器，坐标轴触发有效
                 type: 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
             },
             formatter:function (params) {
                 let str=params[0].axisValue+"<br/>";
                 params.forEach(function (e) {
-                    str+=e.marker+e.seriesName+": "+e.value+"万美元<br/>";
+                    str+=e.marker+e.seriesName+": "+(e.value/100).toFixed(2)+" million dollars<br/>";
                 });
                 return str
             }
         },
         legend: {
-            data: ['进口额','出口额','进出口总额'],
+            data: ['imports','exports','total'],
             textStyle:{
                 color:"#FFF",
             },
@@ -135,7 +293,7 @@ function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
         xAxis: [
             {
                 type: 'category',
-                data: xData,
+                data: xData_en,
                 axisLabel:{
                     color:"#FFF",
                     interval:0
@@ -163,7 +321,7 @@ function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
         ],
         series: [
             {
-                name: '进口额',
+                name: 'imports',
                 type: 'bar',
                 stack: '外贸数据',
                 barWidth: '35%',
@@ -177,7 +335,7 @@ function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
                 // },
             },
             {
-                name: '出口额',
+                name: 'exports',
                 type: 'bar',
                 stack: '外贸数据',
                 barWidth: '35%',
@@ -191,7 +349,7 @@ function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
                 // },
             },
             {
-                name: '进出口总额',
+                name: 'total',
                 type: 'bar',
                 stack: '外贸数据',
                 barWidth: '35%',
@@ -217,7 +375,23 @@ function chart1_2(xData,seriesDataInside,seriesDataOutside,seriesDataTotal) {
 }
 
 function chart1_3(year,areaArr) {
-// 1.实例化对象
+    let areaArr_en=[];
+    // res={'亚洲':0,'非洲':0,'大洋洲':0,'南美洲':0,'北美洲':0,'欧洲':0}
+    let areaDict= {
+        '亚洲': 'Asia',
+        '非洲': 'Africa',
+        '欧洲': 'Europe',
+        '北美洲': 'North America',
+        '南美洲': 'South America',
+        '大洋洲': 'Oceania'
+    };
+    for(let i=0;i<areaArr.length;i++){
+        // console.log(areaArr[i]);
+        areaArr_en.push({name:areaDict[areaArr[i].name],value:areaArr[i].value});
+    }
+    // console.log(areaArr_en);
+
+    // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart3"));
 
     // console.log(mychart);
@@ -232,11 +406,11 @@ function chart1_3(year,areaArr) {
         // },
         series: [
             {
-                name: year+"年",
+                name: year,
                 type: 'pie',
                 radius: [20, 80],
                 roseType: 'radius',
-                data: areaArr,
+                data: areaArr_en,
                 label: {
                     fontSize: 15,
                     // color:'#FFF',
@@ -255,7 +429,11 @@ function chart1_3(year,areaArr) {
 }
 
 
-function chart1_4(countrys,fdiData) {
+function chart1_4(countries,fdiData) {
+    let countries_en=[];
+    for(let i=0;i<countries.length;i++){
+        countries_en.push(EnglishMap[countries[i]]);
+    }
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart4"));
 
@@ -273,7 +451,7 @@ function chart1_4(countrys,fdiData) {
             },
             formatter:function (params) {
                 // console.log(params)
-                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+params[0].value+"亿美元"
+                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+(params[0].value/10).toFixed(2)+" billion dollars"
             }
         },
         grid: {
@@ -301,11 +479,11 @@ function chart1_4(countrys,fdiData) {
             axisLabel: {show: false},
             axisTick: {show: false},
             splitLine: {show: false},
-            data: countrys
+            data: countries_en
         },
         series: [
             {
-                name: 'FDI外商直接投资',
+                name: 'foreign direct investment',
                 type: 'bar',
                 stack: '总量',
                 label: {
@@ -331,6 +509,11 @@ function chart1_4(countrys,fdiData) {
 }
 
 function chart1_5(indicator,seriesData) {
+    // 将indicator的中文改成英文
+    for(let i=0;i<indicator.length;i++){
+        indicator[i].name=EnglishMap[indicator[i].name];
+    }
+
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart5"));
 
@@ -340,7 +523,7 @@ function chart1_5(indicator,seriesData) {
         tooltip: {
             trigger: 'item',
             formatter: function (params) {
-                let str="外贸依存度Top10"+"<br>";
+                let str="Top10 Foreign Trade Dependence"+"<br>";
                 for(let j=0;j<indicator.length;j++){
                     str+=indicator[j].name+"："+seriesData[j]+"%<br/>";
                 }
@@ -444,7 +627,7 @@ function chart1_6(title,link,value){
                 type: 'shadow'
             },
             formatter:function (params) {
-                return title[params[0].dataIndex]+'<br/>'+params[0].marker+"热度"+": "+params[0].value
+                return title[params[0].dataIndex]+'<br/>'+params[0].marker+"hot index"+": "+params[0].value
             }
         },
         grid: {
@@ -473,7 +656,7 @@ function chart1_6(title,link,value){
         },
         yAxis: {
             type: 'category',
-            data: ['新闻10','新闻9','新闻8','新闻7','新闻6','新闻5','新闻4','新闻3','新闻2','新闻1'],
+            data: ['News10','News9','News8','News7','News6','News5','News4','News3','News2','News1'],
             axisLabel:{
                 color:"white",
             },
@@ -516,6 +699,11 @@ function chart1_6(title,link,value){
 }
 
 function chart2_1(years,gdps) {
+    let years_en=[];
+    for(let i=0;i<years.length;i++){
+        years_en.push(years[i].substr(0,years[i].length-1));
+    }
+
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart1"));
 
@@ -530,7 +718,7 @@ function chart2_1(years,gdps) {
             },
             formatter:function (params) {
                 // console.log(params)
-                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+params[0].value+"亿美元"
+                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+(params[0].value/10).toFixed(2)+" billion dollars"
             }
         },
         grid: {
@@ -543,7 +731,7 @@ function chart2_1(years,gdps) {
         xAxis: [
             {
                 type: 'category',
-                data: years,
+                data: years_en,
                 axisTick: {
                     alignWithLabel: true
                 },
@@ -577,7 +765,7 @@ function chart2_1(years,gdps) {
         ],
         series: [
             {
-                name: '国民生产总值',
+                name: 'Gross Domestic Product',
                 type: 'bar',
                 barWidth: '35%',
                 data: gdps,
@@ -599,7 +787,11 @@ function chart2_1(years,gdps) {
     });
 }
 
-function chart2_2(year,total,inside,outside) {
+function chart2_2(years,total,inside,outside) {
+    let years_en=[];
+    for(let i=0;i<years.length;i++){
+        years_en.push(years[i].substr(0,years[i].length-1));
+    }
     // console.log(year)
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart2"));
@@ -617,7 +809,7 @@ function chart2_2(year,total,inside,outside) {
                 let str="";
                 str+=params[0].axisValue+'<br/>';
                 for(let i=0;i<3;i++){
-                    str+=params[i].marker+params[i].seriesName+": "+params[i].value+"万美元"+"<br/>"
+                    str+=params[i].marker+params[i].seriesName+": "+(params[i].value/100).toFixed(2)+" million dollars"+"<br/>"
                 }
                 return str
             },
@@ -671,7 +863,7 @@ function chart2_2(year,total,inside,outside) {
                 show: false
             },
             boundaryGap: true,
-            data: year,
+            data: years_en,
         }],
 
         yAxis: [{
@@ -700,7 +892,7 @@ function chart2_2(year,total,inside,outside) {
             },
         }],
         series: [{
-                name: '进口额',
+                name: 'imports',
                 type: 'line',
                 smooth: true, //是否平滑
                 showAllSymbol: true,
@@ -753,7 +945,7 @@ function chart2_2(year,total,inside,outside) {
                 data: inside,
             },
             {
-                name: '出口额',
+                name: 'exports',
                 type: 'line',
                 smooth: true, //是否平滑
                 showAllSymbol: true,
@@ -809,7 +1001,7 @@ function chart2_2(year,total,inside,outside) {
                 data: outside,
             },
             {
-                name: '进出口总额',
+                name: 'total',
                 type: 'line',
                 smooth: true, //是否平滑
                 showAllSymbol: true,
@@ -877,6 +1069,11 @@ function chart2_3() {
 }
 
 function chart2_4(years,fdiData) {
+    let years_en=[];
+    for(let i=0;i<years.length;i++){
+        years_en.push(years[i].substr(0,years[i].length-1));
+    }
+
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart4"));
 
@@ -894,7 +1091,7 @@ function chart2_4(years,fdiData) {
             },
             formatter:function (params) {
                 // console.log(params)
-                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+params[0].value+"亿美元"
+                return params[0].axisValue+'<br/>'+params[0].marker+params[0].seriesName+": "+(params[0].value/10).toFixed(2)+" billion dollars"
             }
         },
         grid: {
@@ -922,11 +1119,11 @@ function chart2_4(years,fdiData) {
             axisLabel: {show: false},
             axisTick: {show: false},
             splitLine: {show: false},
-            data: years
+            data: years_en
         },
         series: [
             {
-                name: 'FDI外商直接投资',
+                name: 'foreign direct investment',
                 type: 'bar',
                 stack: '总量',
                 label: {
@@ -952,6 +1149,10 @@ function chart2_4(years,fdiData) {
 }
 
 function chart2_5(years,dependence) {
+    for(let i=0;i<years.length;i++){
+        years[i].name=years[i].name.substr(0,years[i].name.length-1)
+    }
+
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector("#chart5"));
 
@@ -960,7 +1161,7 @@ function chart2_5(years,dependence) {
         tooltip: {
             trigger: 'item',
             formatter: function (params) {
-                let str="外贸依存度展示"+"<br>";
+                let str="Foreign Trade Dependence"+"<br>";
                 for(let j=0;j<years.length;j++){
                     str+=years[j].name+"："+dependence[j]+"%<br/>";
                 }
@@ -974,10 +1175,6 @@ function chart2_5(years,dependence) {
             startAngle: 90,
             splitNumber: 3,
             orient: 'horizontal', // 图例列表的布局朝向,默认'horizontal'为横向,'vertical'为纵向.
-            // shape: 'circle',
-            // backgroundColor: {
-            //     image:imgPath[0]
-            // },
             name: {
                 formatter: '{value}',
                 textStyle: {
@@ -1061,208 +1258,6 @@ function chart_map(year,data){
     // 1.实例化对象
     let mychart=echarts.init(document.querySelector(".map .chart"));
 
-    // 请求world.json文件
-    // echarts.registerMap("china", getWorldJson());
-
-    // let name_Map={
-    //     "Afghanistan": "阿富汗",
-    //     "Angola": "安哥拉",
-    //     "Albania": "阿尔巴尼亚",
-    //     "Algeria": "阿尔及利亚",
-    //     "Argentina": "阿根廷",
-    //     "Armenia": "亚美尼亚",
-    //     "Australia": "澳大利亚",
-    //     "Austria": "奥地利",
-    //     "Azerbaijan": "阿塞拜疆",
-    //     "Bahamas": "巴哈马",
-    //     "Bangladesh": "孟加拉国",
-    //     "Belgium": "比利时",
-    //     "Benin": "贝宁",
-    //     "Burkina Faso": "布基纳法索",
-    //     "Burundi": "布隆迪",
-    //     "Bulgaria": "保加利亚",
-    //     "Belarus": "白俄罗斯",
-    //     "Belize": "伯利兹",
-    //     "Bermuda": "百慕大群岛",
-    //     "Bolivia": "玻利维亚",
-    //     "Brazil": "巴西",
-    //     "Brunei": "文莱",
-    //     "Bhutan": "不丹",
-    //     "Botswana": "博茨瓦纳",
-    //     "Cambodia": "柬埔寨",
-    //     "Cameroon": "喀麦隆",
-    //     "Canada": "加拿大",
-    //     "Central African Rep.": "中非共和国",
-    //     "Chad": "乍得",
-    //     "Chile": "智利",
-    //     "China": "中国",
-    //     "Colombia": "哥伦比亚",
-    //     "Congo": "刚果",
-    //     "Costa Rica": "哥斯达黎加",
-    //     "Côte d'Ivoire": "科特迪瓦",
-    //     "Croatia": "克罗地亚",
-    //     "Cuba": "古巴",
-    //     "Cyprus": "塞浦路斯",
-    //     "Czech Rep.": "捷克",
-    //     "Dem. Rep. Korea": "韩国",
-    //     "Dem. Rep. Congo": "民主刚果",
-    //     "Denmark": "丹麦",
-    //     "Djibouti": "吉布提",
-    //     "Dominican Rep.": "多米尼加共和国",
-    //     "Ecuador": "厄瓜多尔",
-    //     "Egypt": "埃及",
-    //     "El Salvador": "萨尔瓦多",
-    //     "Eq. Guinea": "赤道几内亚",
-    //     "Eritrea": "厄立特里亚",
-    //     "Estonia": "爱沙尼亚",
-    //     "Ethiopia": "埃塞俄比亚",
-    //     "Falkland Is.": "福克兰群岛",
-    //     "Fiji": "斐济",
-    //     "Finland": "芬兰",
-    //     "France": "法国",
-    //     "French Guiana": "法属圭亚那",
-    //     "Fr. S. Antarctic Lands": "法属南部领地",
-    //     "Gabon": "加蓬",
-    //     "Gambia": "冈比亚",
-    //     "Germany": "德国",
-    //     "Ghana": "加纳",
-    //     "Greece": "希腊",
-    //     "Greenland": "格陵兰",
-    //     "Guatemala": "危地马拉",
-    //     "Guinea": "几内亚",
-    //     "Guinea-Bissau": "几内亚比绍",
-    //     "Guyana": "圭亚那",
-    //     "Haiti": "海地",
-    //     "Heard I. and McDonald Is.": "赫德岛和麦克唐纳群岛",
-    //     "Honduras": "洪都拉斯",
-    //     "Hungary": "匈牙利",
-    //     "Iceland": "冰岛",
-    //     "India": "印度",
-    //     "Indonesia": "印度尼西亚",
-    //     "Iran": "伊朗",
-    //     "Iraq": "伊拉克",
-    //     "Ireland": "爱尔兰",
-    //     "Israel": "以色列",
-    //     "Italy": "意大利",
-    //     "Ivory Coast": "象牙海岸",
-    //     "Jamaica": "牙买加",
-    //     "Japan": "日本",
-    //     "Kashmir": "克什米尔",
-    //     "Kazakhstan": "哈萨克斯坦",
-    //     "Kenya": "肯尼亚",
-    //     "Kosovo": "科索沃",
-    //     "Kuwait": "科威特",
-    //     "Kyrgyzstan": "吉尔吉斯斯坦",
-    //     "Lao PDR": "老挝",
-    //     "Latvia": "拉脱维亚",
-    //     "Lebanon": "黎巴嫩",
-    //     "Lesotho": "莱索托",
-    //     "Liberia": "利比里亚",
-    //     "Libya": "利比亚",
-    //     "Lithuania": "立陶宛",
-    //     "Luxembourg": "卢森堡",
-    //     "Madagascar": "马达加斯加",
-    //     "Macedonia": "北马其顿",
-    //     "Malawi": "马拉维",
-    //     "Malaysia": "马来西亚",
-    //     "Mali": "马里",
-    //     "Mauritania": "毛里塔尼亚",
-    //     "Mexico": "墨西哥",
-    //     "Moldova": "摩尔多瓦",
-    //     "Mongolia": "蒙古国",
-    //     "Montenegro": "黑山",
-    //     "Morocco": "摩洛哥",
-    //     "Mozambique": "莫桑比克",
-    //     "Myanmar": "缅甸",
-    //     "Namibia": "纳米比亚",
-    //     "Netherlands": "荷兰",
-    //     "New Caledonia": "新喀里多尼亚",
-    //     "New Zealand": "新西兰",
-    //     "Nepal": "尼泊尔",
-    //     "Nicaragua": "尼加拉瓜",
-    //     "Niger": "尼日尔",
-    //     "Nigeria": "尼日利亚",
-    //     "Korea": "朝鲜",
-    //     "Northern Cyprus": "北塞浦路斯",
-    //     "Norway": "挪威",
-    //     "Oman": "阿曼",
-    //     "Pakistan": "巴基斯坦",
-    //     "Panama": "巴拿马",
-    //     "Papua New Guinea": "巴布亚新几内亚",
-    //     "Paraguay": "巴拉圭",
-    //     "Peru": "秘鲁",
-    //     "Republic of the Congo": "刚果共和国",
-    //     "Philippines": "菲律宾",
-    //     "Poland": "波兰",
-    //     "Portugal": "葡萄牙",
-    //     "Puerto Rico": "波多黎各",
-    //     "Qatar": "卡塔尔",
-    //     "Republic of Seychelles": "塞舌尔共和国",
-    //     "Romania": "罗马尼亚",
-    //     "Russia": "俄罗斯",
-    //     "Rwanda": "卢旺达",
-    //     "Saint Helena": "圣海伦娜",
-    //     "Samoa": "萨摩亚",
-    //     "Saudi Arabia": "沙特阿拉伯",
-    //     "Seychelles": "塞舌尔",
-    //     "Senegal": "塞内加尔",
-    //     "Serbia": "塞尔维亚",
-    //     "Sierra Leone": "塞拉利昂",
-    //     "Slovakia": "斯洛伐克",
-    //     "Slovenia": "斯洛文尼亚",
-    //     "Solomon Is.": "所罗门群岛",
-    //     "Somaliland": "索马里兰",
-    //     "Somalia": "索马里",
-    //     "South Africa": "南非",
-    //     "S. Geo. and S. Sandw. Is.": "南乔治亚和南桑德威奇群岛",
-    //     "S. Sudan": "南苏丹",
-    //     "Spain": "西班牙",
-    //     "Sri Lanka": "斯里兰卡",
-    //     "Sudan": "苏丹",
-    //     "Suriname": "苏里南",
-    //     "St. Vin. and Gren.": "圣文森特和格林纳丁斯",
-    //     "St. Pierre and Miquelon": "圣皮埃尔和密克隆群岛",
-    //     "Swaziland": "斯威士兰",
-    //     "Sweden": "瑞典",
-    //     "Switzerland": "瑞士",
-    //     "Syria": "叙利亚",
-    //     "Tajikistan": "塔吉克斯坦",
-    //     "Tanzania": "坦桑尼亚",
-    //     "Thailand": "泰国",
-    //     "The Kingdom of Tonga": "汤加王国",
-    //     "Timor-Leste": "东帝汶",
-    //     "Tonga ": "汤加",
-    //     "Togo": "多哥",
-    //     "Trinidad and Tobago": "特立尼达和多巴哥",
-    //     "Turks and Caicos Is.": "特克斯和凯科斯群岛",
-    //     "Tunisia": "突尼斯",
-    //     "Turkey": "土耳其",
-    //     "Turkmenistan": "土库曼斯坦",
-    //     "Uganda": "乌干达",
-    //     "Ukraine": "乌克兰",
-    //     "United Kingdom": "大不列颠联合王国",
-    //     "United Republic of Tanzania": "坦桑尼亚联合共和国",
-    //     "United States": "美国",
-    //     "United States of America": "美利坚合众国",
-    //     "Uruguay": "乌拉圭",
-    //     "U.S. Virgin Is.": "圣母玛利亚",
-    //     "Uzbekistan": "乌兹别克斯坦",
-    //     "Vanuatu": "瓦努阿图",
-    //     "Venezuela": "委内瑞拉",
-    //     "Vietnam": "越南",
-    //     "West Bank": "西岸",
-    //     "W. Sahara": "西撒哈拉",
-    //     "Yemen": "也门",
-    //     "Zambia": "赞比亚",
-    //     "Zimbabwe": "津巴布韦",
-    //     "Palestine": "巴勒斯坦",
-    //     "Singapore": "新加坡",
-    //     "Bahrain": "巴林",
-    //     "Bosnia and Herz.": "波黑",
-    //     "Georgia": "格鲁吉亚",
-    //     "United Arab Emirates": "阿联酋",
-    //     "Jordan": "约旦",
-    // };
     let jinWeiDuDict={
         "乌克兰": [30.28, 50.3],
         "中国": [116.2, 39.55],
@@ -1328,6 +1323,7 @@ function chart_map(year,data){
         "科威特": [48.0, 29.3],
         "新加坡": [103.45,1.22]
     };
+
     let convertData = function(data) {
         let res = [];
         for (let i = 0; i < data.length; i++) {
@@ -1345,20 +1341,10 @@ function chart_map(year,data){
         }
         return res;
     };
+
     let planePath = 'path://M1705.06,1318.313v-89.254l-319.9-221.799l0.073-208.063c0.521-84.662-26.629-121.796-63.961-121.491c-37.332-0.305-64.482,36.829-63.961,121.491l0.073,208.063l-319.9,221.799v89.254l330.343-157.288l12.238,241.308l-134.449,92.931l0.531,42.034l175.125-42.917l175.125,42.917l0.531-42.034l-134.449-92.931l12.238-241.308L1705.06,1318.313z';
-    let color=['rgb(106,176,184)','green','rgb(47,69,84)','blue','rgb(116,159,131)','black','yellow','#9ae5fc', '#dcbf71'];
+    let color=['rgb(106,176,184)','green','rgb(47,69,84)','blue','rgb(116,159,131)','black','rgb(128,0,128)','#9ae5fc', '#dcbf71'];
     let series=[];
-    // series.push({
-    //             name: '沿线65国相关数据',
-    //             type:"map",
-    //             // mapType: 'world',
-    //             geoIndex: 0,
-    //             coordinateSystem: 'geo',
-    //             right:1000,
-    //             zlevel: 4,
-    //             roam:true,
-    //             data: data
-    //         });
 
     let country65name=['不丹','东帝汶','中国','乌克兰','乌兹别克斯坦','也门','亚美尼亚','以色列','伊拉克','伊朗','俄罗斯','保加利亚','克罗地亚','匈牙利','北马其顿','卡塔尔','印度','印度尼西亚','叙利亚','吉尔吉斯斯坦','哈萨克斯坦','土库曼斯坦','土耳其','埃及','塔吉克斯坦','塞尔维亚','孟加拉国','尼泊尔','巴勒斯坦','巴基斯坦','巴林','拉脱维亚','捷克','摩尔多瓦','文莱','斯洛伐克','斯洛文尼亚','斯里兰卡','新加坡','柬埔寨','格鲁吉亚','沙特阿拉伯','波兰','波黑','泰国','爱沙尼亚','白俄罗斯','科威特','立陶宛','约旦','缅甸','罗马尼亚','老挝','菲律宾','蒙古国','越南','阿塞拜疆','阿富汗','阿尔巴尼亚','阿曼','阿联酋','马尔代夫','马来西亚','黎巴嫩','黑山']
     // 给65国做标记
@@ -1379,7 +1365,7 @@ function chart_map(year,data){
         },
         itemStyle: {
             normal: {
-                color: color[7]
+                color: 'rgb(81,97,109)'
             },
             emphasis:{
                 color:"rgb(213,58,53)",
@@ -1387,29 +1373,12 @@ function chart_map(year,data){
         },
         data: country65name.map(function(dataItem) {
             return {
-                name: dataItem,
+                name: EnglishMap[dataItem],
                 value: jinWeiDuDict[dataItem],  // 起点的位置
                 symbolSize: 100/8,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
             };
         })
     });
-
-    // let country65=[];
-    // for(let i=0;i<65;i++){
-    //     country65.push({
-    //             name: country65name[i],
-    //             selected: false,
-    //             itemStyle: {   // 高亮时候的样式
-    //                 normal: {
-    //                     areaColor: 'rgb(213,58,53)'
-    //                 },
-    //                 emphasis: {
-    //                     areaColor: '#2f89cf'
-    //                 }
-    //             },
-    //         });
-    // }
-    // country65[2].label={normal:{show:true}};
 
     // 1 新亚欧大陆桥
     let road1 = [
@@ -1474,33 +1443,6 @@ function chart_map(year,data){
             },
             data: convertData(road1)     // 特效的起始、终点位置，一个二维数组，相当于coords: convertData(item[1])
         },
-    //     { // 散点效果
-    //         type: 'effectScatter',
-    //         coordinateSystem: 'amap',       // 表示使用的坐标系为地理坐标系
-    //         zlevel: 3,
-    //         rippleEffect: {
-    //             brushType: 'stroke'        // 波纹绘制效果
-    //         },
-    //         label: {
-    //             normal: {                  // 默认的文本标签显示样式
-    //                 show: true,
-    //                 position: 'left',      // 标签显示的位置
-    //                 formatter: '{b}'       // 标签内容格式器
-    //             }
-    //         },
-    //         itemStyle: {
-    //             normal: {
-    //                 color: color[7]
-    //             }
-    //         },
-    //         data: road1.map(function(dataItem) {
-    //             return {
-    //                 name: dataItem[1].name,
-    //                 value: jinWeiDuDict[dataItem[1].name],  // 起点的位置
-    //                 symbolSize: dataItem[1].value / 8,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
-    //             };
-    //         })
-    // }
     );
 
     // 2 中国-中亚-西亚经济走廊
@@ -1566,33 +1508,6 @@ function chart_map(year,data){
         },
         data: convertData(road2)     // 特效的起始、终点位置，一个二维数组，相当于coords: convertData(item[1])
     },
-    //     { // 散点效果
-    //     type: 'effectScatter',
-    //     coordinateSystem: 'amap',       // 表示使用的坐标系为地理坐标系
-    //     zlevel: 3,
-    //     rippleEffect: {
-    //         brushType: 'stroke'        // 波纹绘制效果
-    //     },
-    //     label: {
-    //         normal: {                  // 默认的文本标签显示样式
-    //             show: true,
-    //             position: 'left',      // 标签显示的位置
-    //             formatter: '{b}'       // 标签内容格式器
-    //         }
-    //     },
-    //     itemStyle: {
-    //         normal: {
-    //             color: color[7]
-    //         }
-    //     },
-    //     data: road2.map(function(dataItem) {
-    //         return {
-    //             name: dataItem[1].name,
-    //             value: jinWeiDuDict[dataItem[1].name],  // 起点的位置
-    //             symbolSize: dataItem[1].value / 8,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
-    //         };
-    //     })
-    // }
     );
 
     // 3 中巴
@@ -1654,33 +1569,6 @@ function chart_map(year,data){
         },
         data: convertData(road3)     // 特效的起始、终点位置，一个二维数组，相当于coords: convertData(item[1])
     },
-    // { // 散点效果
-    //     type: 'effectScatter',
-    //     coordinateSystem: 'amap',       // 表示使用的坐标系为地理坐标系
-    //     zlevel: 3,
-    //     rippleEffect: {
-    //         brushType: 'stroke'        // 波纹绘制效果
-    //     },
-    //     label: {
-    //         normal: {                  // 默认的文本标签显示样式
-    //             show: true,
-    //             position: 'left',      // 标签显示的位置
-    //             formatter: '{b}'       // 标签内容格式器
-    //         }
-    //     },
-    //     itemStyle: {
-    //         normal: {
-    //             color: color[7]
-    //         }
-    //     },
-    //     data: road3.map(function(dataItem) {
-    //         return {
-    //             name: dataItem[1].name,
-    //             value: jinWeiDuDict[dataItem[1].name],  // 起点的位置
-    //             symbolSize: dataItem[1].value / 8,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
-    //         };
-    //     })
-    // }
     );
 
     // 4 中蒙俄
@@ -1743,35 +1631,7 @@ function chart_map(year,data){
         },
         data: convertData(road4)     // 特效的起始、终点位置，一个二维数组，相当于coords: convertData(item[1])
     },
-    //     { // 散点效果
-    //     type: 'effectScatter',
-    //     coordinateSystem: 'amap',       // 表示使用的坐标系为地理坐标系
-    //     zlevel: 3,
-    //     rippleEffect: {
-    //         brushType: 'stroke'        // 波纹绘制效果
-    //     },
-    //     label: {
-    //         normal: {                  // 默认的文本标签显示样式
-    //             show: true,
-    //             position: 'left',      // 标签显示的位置
-    //             formatter: '{b}'       // 标签内容格式器
-    //         }
-    //     },
-    //     itemStyle: {
-    //         normal: {
-    //             color: color[7]
-    //         }
-    //     },
-    //     data: road4.map(function(dataItem) {
-    //         return {
-    //             name: dataItem[1].name,
-    //             value: jinWeiDuDict[dataItem[1].name],  // 起点的位置
-    //             symbolSize: dataItem[1].value / 8,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
-    //         };
-    //     })
-    // }
     );
-
 
     // 5 中国-中南半岛
     let road5 = [
@@ -1837,33 +1697,6 @@ function chart_map(year,data){
         },
         data: convertData(road5)     // 特效的起始、终点位置，一个二维数组，相当于coords: convertData(item[1])
     },
-    //     { // 散点效果
-    //     type: 'effectScatter',
-    //     coordinateSystem: 'amap',       // 表示使用的坐标系为地理坐标系
-    //     zlevel: 3,
-    //     rippleEffect: {
-    //         brushType: 'stroke'        // 波纹绘制效果
-    //     },
-    //     label: {
-    //         normal: {                  // 默认的文本标签显示样式
-    //             show: true,
-    //             position: 'left',      // 标签显示的位置
-    //             formatter: '{b}'       // 标签内容格式器
-    //         }
-    //     },
-    //     itemStyle: {
-    //         normal: {
-    //             color: color[7]
-    //         }
-    //     },
-    //     data: road5.map(function(dataItem) {
-    //         return {
-    //             name: dataItem[1].name,
-    //             value: jinWeiDuDict[dataItem[1].name],  // 起点的位置
-    //             symbolSize: dataItem[1].value / 8,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
-    //         };
-    //     })
-    // }
     );
 
     // 6 孟中印缅
@@ -1927,33 +1760,6 @@ function chart_map(year,data){
         },
         data: convertData(road6)     // 特效的起始、终点位置，一个二维数组，相当于coords: convertData(item[1])
     },
-    //     { // 散点效果
-    //     type: 'effectScatter',
-    //     coordinateSystem: 'amap',       // 表示使用的坐标系为地理坐标系
-    //     zlevel: 3,
-    //     rippleEffect: {
-    //         brushType: 'stroke'        // 波纹绘制效果
-    //     },
-    //     label: {
-    //         normal: {                  // 默认的文本标签显示样式
-    //             show: true,
-    //             position: 'left',      // 标签显示的位置
-    //             formatter: '{b}'       // 标签内容格式器
-    //         }
-    //     },
-    //     itemStyle: {
-    //         normal: {
-    //             color: color[7]
-    //         }
-    //     },
-    //     data: road6.map(function(dataItem) {
-    //         return {
-    //             name: dataItem[1].name,
-    //             value: jinWeiDuDict[dataItem[1].name],  // 起点的位置
-    //             symbolSize: dataItem[1].value / 8,  // 散点的大小，通过之前设置的权重来计算，val的值来自data返回的value
-    //         };
-    //     })
-    // }
     );
 
 
@@ -2074,12 +1880,16 @@ function chart_map(year,data){
     // 2.指定配置项和数据
     let option = {
         tooltip : {
+            // position: function(point, params, dom, rect, size){
+            //     return [point[0]+20,point[1]];
+            // },
             show:true,
             trigger: 'item',
             formatter:function (params) {
                 if(params.seriesType==="lines"){
                     let index=color.indexOf(params.color);
-                    let lineName=["新亚欧大陆桥","中国-中亚-西亚经济走廊","中巴经济走廊","中蒙俄经济走廊","中国-中南半岛经济走廊","孟中印缅经济走廊","21世纪海上丝绸之路"];
+                    // let lineName=["新亚欧大陆桥","中国-中亚-西亚经济走廊","中巴经济走廊","中蒙俄经济走廊","中国-中南半岛经济走廊","孟中印缅经济走廊","21世纪海上丝绸之路"];
+                    let lineName=["New Eurasian Land Bridge","The China-Central Asia-West Asia Economic Corridor","China-Pakistan Economic Corridor","China-Mongolia-Russia Economic Corridor","China-Indochina Peninsula economic corridor","Bangladesh-China-India-Myanmar Economic Corridor","21st Century Maritime Silk Road"];
                     let countryInLine=[
                         ["中国","哈萨克斯坦","俄罗斯","乌克兰","白俄罗斯","格鲁吉亚","阿塞拜疆","亚美尼亚","摩尔多瓦","波兰","立陶宛","爱沙尼亚","拉脱维亚","捷克","斯洛伐克","匈牙利","斯洛文尼亚","克罗地亚","波黑","塞尔维亚","阿尔巴尼亚","罗马尼亚","保加利亚","北马其顿"],
                         ['中国','哈萨克斯坦','乌兹别克斯坦','土库曼斯坦','塔吉克斯坦','吉尔吉斯斯坦','伊朗','伊拉克','土耳其','叙利亚','约旦','黎巴嫩','以色列','沙特阿拉伯','也门','阿曼','阿联酋','卡塔尔','科威特','巴林','希腊','塞浦路斯','埃及'],
@@ -2091,48 +1901,36 @@ function chart_map(year,data){
                     ];
                     let str=""
                     for(let i=0;i<countryInLine[index].length;i++){
-                        str+=countryInLine[index][i]+",";
+                        str+=EnglishMap[countryInLine[index][i]]+",";
                         if(i!=0 && i%5===0){
                             str+="<br/>&nbsp&nbsp&nbsp&nbsp";
                         }
                     }
                     str=str.substr(0, str.length - 1);
                     return lineName[index]+"<br/>"+
-                        "线路上的国家：<br/>&nbsp&nbsp&nbsp&nbsp"+str
+                        "countries on the line: <br/>&nbsp&nbsp&nbsp&nbsp"+str
                 }
-                if(params.name==="")
-                    return "非沿线65国，无相关数据";
-                if(params.name==="中国")
-                    return "沿线65国："+params.name+"<br/>"+
-                        year+"年GDP："+ data[params.name].GDP+"美元<br/>"+
-                        year+"年对外进出口总额："+data[params.name].Total+"<br/>"+
-                        year+"年FDI："+ data[params.name].FDI+"<br/>"+
-                        year+"年外贸依存度："+ data[params.name].YiCunDu+"<br/>";
-                return "沿线65国："+params.name+"<br/>"+
-                    year+"年GDP："+ data[params.name].GDP+"<br/>"+
-                    year+"年对中国进出口总额："+data[params.name].Total+"<br/>"+
-                    year+"年FDI："+ data[params.name].FDI+"<br/>"+
-                    year+"年外贸依存度："+ data[params.name].YiCunDu+"<br/>";
+                // if(params.name==="")
+                //     return "非沿线65国，无相关数据";
+                if(params.name===EnglishMap["中国"]) {
+                    let country_data = data[ChineseMap[params.name]];
+                    return params.name + "<br/>" +
+                        year + " Gross Domestic Product: " + (parseFloat(country_data.GDP.substr(0, country_data.GDP.length - 1)) / 10).toFixed(2) + " billion dollars<br/>" +
+                        year + " total: " + (parseFloat(country_data.Total.substr(0, country_data.Total.length - 3)) / 100).toFixed(2) + " million dollars<br/>" +
+                        year + " foreign direct investment: " + (parseFloat(country_data.FDI.substr(0, country_data.FDI.length - 3)) / 10).toFixed(2) + " billion dollars<br/>" +
+                        year + " foreign trade dependence: " + country_data.YiCunDu + "<br/>";
+                }
+                let country_data = data[ChineseMap[params.name]];
+                return params.name + "<br/>" +
+                    year + " Gross Domestic Product: " + (parseFloat(country_data.GDP.substr(0, country_data.GDP.length - 1)) / 10).toFixed(2) + " billion dollars<br/>" +
+                    year + " total: " + (parseFloat(country_data.Total.substr(0, country_data.Total.length - 3)) / 100).toFixed(2) + " million dollars<br/>" +
+                    year + " foreign direct investment: " + (parseFloat(country_data.FDI.substr(0, country_data.FDI.length - 3)) / 10).toFixed(2) + " billion dollars<br/>" +
+                    year + " foreign trade dependence: " + country_data.YiCunDu + "<br/>";
             }
         },
-        // geo: {
-        //     map: 'world',       // 与引用进来的地图js名字一致
-        //     roam: true,
-        //     zoom: 5,
-        //     center: [100.97, 29.71],
-        //     itemStyle: {        // 每个区域的样式
-        //         normal: {
-        //             areaColor: '#FFF'
-        //         },
-        //         emphasis: {
-        //             areaColor: 'rgb(125,125,125)'
-        //         },
-        //     },
-        //     nameMap:name_Map,
-        //     regions: country65,
-        //     data: {"name":"中国",value:100}
-        // },
+
         amap: {
+          lang: "en",
           // 3D模式，无论你使用的是1.x版本还是2.x版本，都建议开启此项以获得更好的渲染体验
           viewMode: '3D',
           // 高德地图中心经纬度

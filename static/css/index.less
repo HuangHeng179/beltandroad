@@ -28,10 +28,40 @@ body {
       text-align: center;
       line-height: 1rem;
       cursor: pointer;
+      div{
+        display: inline-block;
+      }
+      div:hover{
+        color: #2f89cf;
+      }
     }
-    h1:hover{
-      color: #2f89cf;
+    .button-lang {
+      position: absolute;
+      display: inline-block;
+      top: 0.325rem;
+      right: 1rem;
+      width: 1.25rem;
+      height: 0.35rem;
+      /* background-color: #ccc; */
+      background-color: #062b4a;
+      /* box-shadow: #ccc 0px 0px 0px 3px; */
+      box-shadow: #0dafd9 0px 0px 0px 3px;
+      border-radius: 0.375rem;
+      /* overflow: hidden; */
+      font-weight: normal;
+      text-align:center;
+      color: #28D0FD;
+      text-shadow: 0 0 0.025rem #ddd;
+      font-size: 0.2rem;
+      line-height: 0.35rem;
+      cursor: pointer;
+      text-decoration:none
     }
+    .button-lang:active{
+      background-color: #28D0FD;
+      color: #ccc;
+    }
+
 }
 
 // 页面主题盒子
@@ -132,52 +162,6 @@ body {
       z-index: 5;
       height: 9.2rem;
       width: 100%;
-      // &::before {
-      //   position: absolute;
-      //   top: 0;
-      //   left: 0;
-      //   content: "";
-      //   width: 10px;
-      //   height: 10px;
-      //   border-top: 2px solid #02a6b5;
-      //   border-left: 2px solid #02a6b5;
-      // }
-      // &::after {
-      //   position: absolute;
-      //   top: 0;
-      //   right: 0;
-      //   content: "";
-      //   width: 10px;
-      //   height: 10px;
-      //   border-top: 2px solid #02a6b5;
-      //   border-right: 2px solid #02a6b5;
-      // }
-      // .chart-footer {
-      //   position: absolute;
-      //   left: 0;
-      //   bottom: 0;
-      //   width: 100%;
-      //   &::before {
-      //     position: absolute;
-      //     bottom: 0;
-      //     left: 0;
-      //     content: "";
-      //     width: 10px;
-      //     height: 10px;
-      //     border-bottom: 2px solid #02a6b5;
-      //     border-left: 2px solid #02a6b5;
-      //   }
-      //   &::after {
-      //     position: absolute;
-      //     bottom: 0;
-      //     right: 0;
-      //     content: "";
-      //     width: 10px;
-      //     height: 10px;
-      //     border-bottom: 2px solid #02a6b5;
-      //     border-right: 2px solid #02a6b5;
-      //   }
-      // }
     }
     .map1,
     .map2,

@@ -94,7 +94,7 @@ function changeChart1ByCountry(country_name) {
     let data=getGDPDataByCountryName(country_name);
 
     // 更改图表标题
-    $("#chart1_extend h2:first").html("2014-2019年 "+country_name+"GDP一览");
+    $("#chart1_extend h2:first").html("2014-2019 "+EnglishMap[country_name]+"'s GDP Display");
 
     // 根据获取的数据更改图表
     chart2_1(data['years'],data['gdps']);
@@ -107,9 +107,9 @@ function changeChart2ByCountry(country_name) {
 
     // 更改图表标题
     if(country_name==="中国") {
-        $("#chart2_extend h2:first").html("中国对外的进口额、出口额和进出口总额");
+        $("#chart2_extend h2:first").html("China's Imports,Exports and Total");
     }else
-        $("#chart2_extend h2:first").html(country_name + "对中国进口额、出口额和进出口总额");
+        $("#chart2_extend h2:first").html(EnglishMap[country_name] + "'s Imports,Exports and Total to China");
 
     // 根据获取的数据更改图表
     chart2_2(data['year'],data['total'],data['inside'],data['outside']);
@@ -123,7 +123,7 @@ function changeChart4ByCountry(country_name) {
     let data=getFDIByCountryName(country_name);
 
     // 更改图表标题
-    $("#chart4_extend h2:first").html("2014-2019年 "+country_name+"外商直接投资一览");
+    $("#chart4_extend h2:first").html("2014-2019 "+EnglishMap[country_name]+" Foreign Direct Investment Display");
 
     // 根据获取的数据更改图表
     chart2_4(data['years'],data['fdiData']);
@@ -136,9 +136,9 @@ function changeChart5ByCountry(country_name) {
 
     // 更改图表标题
     if(country_name==="中国")
-        $("#chart5_extend h2:first").html("2014-2018年 中国的外贸依存度展示");
+        $("#chart5_extend h2:first").html("2014-2018 China's Foreign Trade Dependence");
     else
-        $("#chart5_extend h2:first").html("2014-2018年 "+country_name+"对中国的外贸依存度展示");
+        $("#chart5_extend h2:first").html("2014-2018 "+EnglishMap[country_name]+"'s Foreign Trade Dependence");
 
     let years=[];
     let maxNum=Math.max(...data['dependence']);
@@ -166,9 +166,10 @@ function changeChart6(){
 }
 
 // 根据国家输入更改所有图表
-function changeAllChartByCountry(country_name) {
+function changeAllChartByCountry(country_name_en) {
+    let country_name=ChineseMap[country_name_en];
     // 将输入框中的内容改成对应的国家名
-    $("#input_search").val(country_name);
+    $("#input_search").val(country_name_en);
 
     changeChart1ByCountry(country_name);
     changeChart2ByCountry(country_name);
@@ -203,7 +204,7 @@ function changeChart1ByYear() {
     let data1=getGDPTop8(year);
 
     // 更改图表的标题
-    $(".bar h2:first").html("一带一路沿线国家GDP TOP8&nbsp&nbsp——"+year+"年");
+    $(".bar h2:first").html("Top 8 GDP of B&R Countries&nbsp&nbsp——"+year);
     // 根据获取的数据更改图表
     chart1_1(data1.countries,data1.gdps);
 }
@@ -217,7 +218,7 @@ function changeChart2ByYear(){
     let data=getBilateralInvestmentByYear(year);
 
     // 更改图表的标题
-    $("#chart2_extend h2:first").html("对中国进出口总额Top8&nbsp&nbsp——"+year+"年");
+    $("#chart2_extend h2:first").html("Top8 in Total,Imports and Exports to China&nbsp&nbsp——"+year);
 
     // 数据数组的构建
     let xData=[],seriesDataInside=[],seriesDataOutside=[],seriesDataTotal=[];
@@ -242,7 +243,7 @@ function changeChart3ByYear() {
     let data=getJoinCountryByYear(year);
 
     // 更改图表的标题
-    $("#chart3_extend h2:first").html("签订共建“一带一路”合作文件国家分布&nbsp&nbsp——"+year+"年");
+    $("#chart3_extend h2:first").html("Distribution of Cooperation Countries&nbsp&nbsp——"+year);
 
     // areaArr的构建
     let areaArr=[]
@@ -267,7 +268,7 @@ function changeChart4ByYear() {
     let data=getFDITop10ByYear(year);
 
     // 更改图表的标题
-    $("#chart4_extend h2:first").html("外商直接投资 Top10&nbsp&nbsp——"+year+"年");
+    $("#chart4_extend h2:first").html("Top10 Foreign Direct Investment&nbsp&nbsp——"+year);
 
     // 根据获取的数据更改图表
     chart1_4(data['countrys'],data['fdiData']);
@@ -282,7 +283,7 @@ function changeChart5ByYear() {
     let data=getDependenceByYear(year);
 
     // 更改图表的标题
-    $("#chart5_extend h2:first").html("“一带一路”沿线国家外贸依存度 Top10&nbsp&nbsp——"+year+"年");
+    $("#chart5_extend h2:first").html("Top10 Foreign Trade Dependence&nbsp&nbsp——"+year);
 
     // 构建参数
     let indicator=[];
@@ -327,6 +328,7 @@ function changeAllChartByYear() {
     changeChart6();
     changeChartMapByYear();
     $("#input_search").val("");
+    // console.log(EnglishMap)
 }
 
 
@@ -341,7 +343,7 @@ function changeAllChartByYear() {
 function searchCountries() {
     let value=$("#input_search").val();
     // 向服务器请求数据
-    let ret=getSomeCountries(value);
+    let ret=getSomeCountries_en(value);
     // console.log(ret.length);
     if(ret.length===0 || value===""){
         $("#on_changes").html("");

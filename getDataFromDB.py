@@ -53,6 +53,21 @@ def getAllCountries():
     return res
 
 
+def getAllCountries_en():
+    conn,cur=connectDB()
+    sqlText="select countryname_en from bilateralinvestment;"
+    cur.execute(sqlText)
+    allCountries_en=cur.fetchall()
+    closeDB(cur,conn)
+
+    # 对从数据库中取出的数据进行处理
+    res=[]
+    for i in allCountries_en:
+        res.append(i[0])
+    # print(len(res))
+    return res
+
+
 # 2.从数据库中获取某一年所有的国家及相关GDP数据
 def getGDPData(year):
     conn, cur = connectDB()
@@ -296,6 +311,7 @@ def getDatasByYear(year):
 
 ## 一些全局变量，用于提高访存效率
 allCountries=getAllCountries()
+allCountries_en=getAllCountries_en()
 
 
 if __name__ == '__main__':

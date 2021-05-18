@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>“一带一路”经贸数据可视化分析系统</title>
+        <title>"One Belt And One Road" Economic and Trade Data Visualization Analysis System</title>
         <link rel="shortcut icon" type="favicon.ico" href="/static/images/favicon.ico">
         <link rel="stylesheet" href="/static/css/index.css" />
         <link href="http://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -153,11 +153,39 @@
             -o-transition: all .6s cubic-bezier(.51,1.1,.9,.95);
              }
         .parHd .act:after{ content: ''; background: url(/static/images/dot_ico1.png) no-repeat; width: 24px; height: 24px; position: absolute;  z-index: 20;top: -12px; left: 50%; margin-left: -12px;}
+
+        {#.button-lang {#}
+        {#    position: absolute;#}
+        {#    display: inline-block;#}
+        {#    top: 25px;#}
+        {#    right: 80px;#}
+        {#    width: 100px;#}
+        {#    height: 28px;#}
+        {#    /* background-color: #ccc; */#}
+        {#    background-color: #062b4a;#}
+        {#    /* box-shadow: #ccc 0px 0px 0px 3px; */#}
+        {#    box-shadow: #0dafd9 0px 0px 0px 3px;#}
+        {#    border-radius: 30px;#}
+        {#    /* overflow: hidden; */#}
+        {#    font-weight: normal;#}
+        {#    text-align:center;#}
+        {#    color: #28D0FD;#}
+        {#    text-shadow: 0 0 2px #ddd;#}
+        {#    font-size: 16px;#}
+        {#    line-height: 28px;#}
+        {#    cursor: pointer;#}
+        {#    text-decoration:none#}
+        {#}#}
+        {#.button-lang:active{#}
+        {#    background-color: #28D0FD;#}
+        {#    color: #ccc;#}
+        {#}#}
+
     </style>
     <body>
         <header>
-            <h1 id="title_btn"><div>“一带一路”经贸数据可视化分析系统</div></h1>
-            <a href="/beltandroad/en" class="button-lang">English</a>
+            <h1 id="title_btn"><div>"One Belt And One Road" economic and trade data visualization analysis system</div></h1>
+            <a href="/beltandroad" class="button-lang">中文</a>
         </header>
         <!-- 页面主体部分 -->
         <section id="mainbox" class="mainbox">
@@ -166,21 +194,21 @@
             <div class="column">
                 <div class="panel bar" id="chart1_extend">
                     <!-- 左边第1张图 -->
-                    <h2>一带一路沿线国家GDP TOP8</h2>
+                    <h2></h2>
                     <div class="chart" id="chart1"></div>
                     <div class="panel-footer"></div>
                 </div>
 
                 <div class="panel" id="chart2_extend">
                     <!-- 左边第2张图 -->
-                    <h2>对中国进口额、出口额和进出口总额</h2>
+                    <h2></h2>
                     <div class="chart" id="chart2"></div>
                     <div class="panel-footer"></div>
                 </div>
 
                 <div class="panel" id="chart3_extend">
                     <!-- 左边第3张图 -->
-                    <h2>同中国签订共建“一带一路”合作文件国家分布</h2>
+                    <h2></h2>
                     <div class="chart" id="chart3"></div>
                     <div class="panel-footer"></div>
                 </div>
@@ -192,7 +220,7 @@
                 <div id="container">
                     <div class="search bar5">
                         <form onsubmit="return false;">
-                            <input id="input_search" type="text" name="str_country" autocomplete="off" placeholder="请输入您想要了解的国家...">
+                            <input id="input_search" type="text" name="str_country" autocomplete="off" placeholder="Please enter the country you would like to know...">
                             <button id="btn_search"></button>
                             <ul id="on_changes">
                             </ul>
@@ -226,12 +254,12 @@
                     </div>
                     <div class="parHd clearfix">
                         <ul>
-                            <li>2014年</li>
-                            <li>2015年</li>
-                            <li class="act">2016年</li>
-                            <li>2017年</li>
-                            <li>2018年</li>
-                            <li>2019年</li>
+                            <li>2014</li>
+                            <li>2015</li>
+                            <li class="act">2016</li>
+                            <li>2017</li>
+                            <li>2018</li>
+                            <li>2019</li>
                         </ul>
                         <a class="sPrev"><img src="/static/images/left_ico.png" alt="" title=""></a>
                         <a class="sNext"><img src="/static/images/right_ico.png" alt="" title=""></a>
@@ -251,13 +279,13 @@
                 </div>
                 <div class="panel" id="chart5_extend">
                     <!-- 右边第2张图 -->
-                    <h2>“一带一路”沿线国家外贸依存度 Top10</h2>
+                    <h2></h2>
                     <div class="chart" id="chart5"></div>
                     <div class="panel-footer"></div>
                 </div>
                 <div class="panel horizon">
                     <!-- 右边第3张图 -->
-                    <h2>热点新闻</h2>
+                    <h2>Hot News</h2>
                     <div class="chart" id="chart6"></div>
                     <div class="panel-footer"></div>
                 </div>
@@ -272,9 +300,9 @@
         <script src="/static/js/resources/world.js"></script>
         <script src="/static/js/resources/jquery.SuperSlide2.1.2.js"></script>
 
-        <script src="/static/js/api.js"></script>               <!-- 与后端数据交互 -->
-        <script src="/static/js/chart_config.js"></script>      <!-- 获得数据后生成图表 -->
-        <script src="/static/js/functions.js"></script>         <!-- 一些函数，打包一些动作 -->
-        <script src="/static/js/index.js"></script>             <!-- 初始页面显示、事件绑定等 -->
+        <script src="/static/js/js_for_en/api.js"></script>               <!-- 与后端数据交互 -->
+        <script src="/static/js/js_for_en/chart_config.js"></script>      <!-- 获得数据后生成图表 -->
+        <script src="/static/js/js_for_en/functions.js"></script>         <!-- 一些函数，打包一些动作 -->
+        <script src="/static/js/js_for_en/index.js"></script>             <!-- 初始页面显示、事件绑定等 -->
     </body>
 </html>
