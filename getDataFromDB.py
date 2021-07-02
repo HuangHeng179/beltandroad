@@ -17,7 +17,7 @@ def connectDB():
     conn = pymysql.connect(
         host='121.196.104.224',
         user='root',
-        password='123456',
+        password='huangheng179@',
         db='beltandroad',
         charset='utf8'
         # autocommit=True    # 如果插入数据，是否自动提交和conn.commit()功能一致
