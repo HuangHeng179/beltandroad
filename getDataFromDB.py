@@ -15,7 +15,8 @@ def connectDB():
     # 1.数据库连接
     # 数据库 本地数据库：'121.196.104.224'
     conn = pymysql.connect(
-        host='121.196.104.224',
+        # host='121.196.104.224',
+        host='118.31.67.149',
         user='root',
         password='huangheng179@',
         db='beltandroad',
