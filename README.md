@@ -16,23 +16,23 @@
 
 本项目的目录结构
 
-![image-20230106033217230](README.assets/image-20230106033217230.png)
+![image-20230106034824417](README.assets/image-20230106034824417.png)
 
 本项目的目录结构的具体说明
 
-| 目录名或文件名   | 说明                          |
-| ---------------- | ----------------------------- |
-| static           | 参见flask框架                 |
-| templates        | 参见flask框架                 |
-| app.py           | 参见flask框架，应用层         |
-| functions.py     | 逻辑层，将获取的数据进行处理  |
-| getDataFromDB.py | 数据层，从mysql获取数据       |
-| db               | 搭建数据库时需要使用的文件    |
-| .gitignore       |                               |
-| README.md        |                               |
-| README.assets    | README.md文档中图片的保存位置 |
-| requirements.txt | 安装依赖时需要使用的文件      |
-| deploy.sh        | 不用管，废弃文件              |
+| 目录名或文件名   | 说明                             |
+| ---------------- | -------------------------------- |
+| static           | 参见flask框架                    |
+| templates        | 参见flask框架                    |
+| app.py           | 参见flask框架，后端应用层        |
+| functions.py     | 后端逻辑层，将获取的数据进行处理 |
+| getDataFromDB.py | 后端数据层，从mysql获取数据      |
+| db               | 搭建数据库时需要使用的文件       |
+| .gitignore       | .gitignore                       |
+| README.md        | README.md                        |
+| README.assets    | README.md文档中图片的保存位置    |
+| requirements.txt | 安装依赖时需要使用的文件         |
+| deploy.sh        | 不用管，废弃文件                 |
 
 # 项目重现教程
 
