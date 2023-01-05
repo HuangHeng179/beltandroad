@@ -13,12 +13,10 @@ import random
 # 数据库连接
 def connectDB():
     # 1.数据库连接
-    # 数据库 本地数据库：'121.196.104.224'
     conn = pymysql.connect(
-        # host='121.196.104.224',
-        host='118.31.67.149',
+        host='127.0.0.1',
         user='root',
-        password='huangheng179@',
+        password='123456',
         db='beltandroad',
         charset='utf8'
         # autocommit=True    # 如果插入数据，是否自动提交和conn.commit()功能一致
