@@ -1,7 +1,5 @@
 # 前言
 
-本教程用于在本地重现《“一带一路”经贸数据可视化分析系统》。
-
 项目演示视频：[https://www.bilibili.com/video/BV1fd4y1k7oT](https://www.bilibili.com/video/BV1fd4y1k7oT)
 
 本项目基于教程[https://www.bilibili.com/video/BV1v7411R7mp](https://www.bilibili.com/video/BV1v7411R7mp)
@@ -14,15 +12,31 @@
 
 经典flask项目的目录结构
 
-本项目在经典flask目录结构的基础上添加了些
+![image-20230106033204829](README.assets/image-20230106033204829.png)
 
+本项目的目录结构
 
+![image-20230106033217230](README.assets/image-20230106033217230.png)
 
 本项目的目录结构的具体说明
 
-
+| 目录名或文件名   | 说明                          |
+| ---------------- | ----------------------------- |
+| static           | 参见flask框架                 |
+| templates        | 参见flask框架                 |
+| app.py           | 参见flask框架，应用层         |
+| functions.py     | 逻辑层，将获取的数据进行处理  |
+| getDataFromDB.py | 数据层，从mysql获取数据       |
+| db               | 搭建数据库时需要使用的文件    |
+| .gitignore       |                               |
+| README.md        |                               |
+| README.assets    | README.md文档中图片的保存位置 |
+| requirements.txt | 安装依赖时需要使用的文件      |
+| deploy.sh        | 不用管，废弃文件              |
 
 # 项目重现教程
+
+本教程用于在本地重现《“一带一路”经贸数据可视化分析系统》。
 
 ## 技术栈
 
@@ -54,23 +68,23 @@ Python 3.11.0
 
 使用Navicat 16连接上本地数据库；
 
-![image-20230106024209250](reademe.assets/image-20230106024209250.png)
+![image-20230106024209250](README.assets/image-20230106024209250.png)
 
 按照下图配置，建立连接，密码为您本机mysql的密码；
 
-![image-20230106024301158](reademe.assets/image-20230106024301158.png)
+![image-20230106024301158](README.assets/image-20230106024301158.png)
 
 双击`localhost mysql`打开连接，右键`localhost mysql`连接，新建数据库，取名为beltandroad
 
 双击`beltandroad`打开数据库，向beltandroad数据库中注入数据
 
-![image-20230106025328400](reademe.assets/image-20230106025328400.png)
+![image-20230106025328400](README.assets/image-20230106025328400.png)
 
-![image-20230106025801391](reademe.assets/image-20230106025801391.png)
+![image-20230106025801391](README.assets/image-20230106025801391.png)
 
 修改文件`E:\Desktop\beltandroad-master\getDataFromDB.py`的19行，将密码改为您的数据库root账号的密码。
 
-![image-20230106025911201](reademe.assets/image-20230106025911201.png)
+![image-20230106025911201](README.assets/image-20230106025911201.png)
 
 ### 安装python依赖包
 
@@ -103,7 +117,7 @@ Werkzeug==2.2.2
 
 打开浏览器，访问 [http://127.0.0.1:5000](http://127.0.0.1:5000)
 
-![image-20230106023734206](reademe.assets/image-20230106023734206.png)
+![image-20230106023734206](README.assets/image-20230106023734206.png)
 
 
 
